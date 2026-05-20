@@ -1,0 +1,8 @@
+raw_pages/
+resized/
+analysis_cache/
+math_review_portal.zip
+*.log
+.DS_Store
+review_screenshot_inspected.png
+review_screenshot.png

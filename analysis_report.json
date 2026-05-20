@@ -1,0 +1,696 @@
+{
+  "page_01": {
+    "page": 1,
+    "questions": [
+      {
+        "q_number": "Q3",
+        "topic": "Rectangle area increase",
+        "question_crop": [
+          5.2,
+          10.8
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              11.8,
+              18.5
+            ],
+            "is_correct": false,
+            "student_written_text": "Answer A",
+            "feedback": "<strong>Error Analysis:</strong><br>The student incorrectly selected $20$. This indicates a misunderstanding of the algebraic manipulation required to solve for $x$.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li>Set up the equation representing the relationship between the dimensions and area: $1.2 \\times (1 + \\frac{x}{100}) = 1.5$.</li>\n  <li>Divide both sides by $1.2$: $1 + \\frac{x}{100} = \\frac{1.5}{1.2}$.</li>\n  <li>Simplify the right side: $1 + \\frac{x}{100} = 1.25$.</li>\n  <li>Subtract $1$ from both sides: $\\frac{x}{100} = 1.25 - 1$.</li>\n  <li>Simplify: $\\frac{x}{100} = 0.25$.</li>\n  <li>Multiply both sides by $100$ to solve for $x$: $x = 0.25 \\times 100$.</li>\n  <li>Calculate the final value of $x$: $x = 25$.</li>\n</ol><br>\n<strong>Conclusion:</strong><br>The correct answer is B, which corresponds to $x = 25$."
+          }
+        ]
+      },
+      {
+        "q_number": "Q4",
+        "topic": "Hemisphere surface area and volume",
+        "question_crop": [
+          21.2,
+          29.5
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              30.2,
+              37.2
+            ],
+            "is_correct": false,
+            "student_written_text": "Answer B",
+            "feedback": "<strong>Error Analysis:</strong><br>The student's chosen answer, B, was incorrect. The correct solution, detailed below, shows that the difference in volumes between the two solid hemispheres is $342\\pi \\text{ cm}^3$, which corresponds to option A. The error likely occurred in the calculation of the constant $k$, the radii, or the final volume difference.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li>Recall that the surface area of a solid hemisphere is given by the formula $A = 3\\pi r^2$, which includes the curved surface area ($2\\pi r^2$) and the area of the flat circular base ($\\pi r^2$).</li>\n  <li>Given the radii of the two solid hemispheres are $2k$ and $3k$, and their combined surface area is $351\\pi$. Set up the equation for the sum of their surface areas:\n    $$3\\pi (2k)^2 + 3\\pi (3k)^2 = 351\\pi$$</li>\n  <li>Simplify and solve for $k$:\n    $$3\\pi (4k^2) + 3\\pi (9k^2) = 351\\pi$$\n    $$12\\pi k^2 + 27\\pi k^2 = 351\\pi$$\n    $$39\\pi k^2 = 351\\pi$$\n    Divide both sides by $39\\pi$:\n    $$k^2 = \\frac{351}{39}$$\n    $$k^2 = 9$$\n    $$k = 3 \\quad (\\text{since radius must be positive})$$</li>\n  <li>Calculate the actual radii of the two hemispheres using the value of $k$:\n    $$r_1 = 2k = 2(3) = 6 \\text{ cm}$$\n    $$r_2 = 3k = 3(3) = 9 \\text{ cm}$$</li>\n  <li>Recall that the volume of a hemisphere is given by the formula $V = \\frac{2}{3}\\pi r^3$.</li>\n  <li>Calculate the difference in volumes between the larger and smaller hemispheres:\n    $$\\text{Difference in Volumes} = \\frac{2}{3}\\pi r_2^3 - \\frac{2}{3}\\pi r_1^3$$\n    $$\\text{Difference in Volumes} = \\frac{2}{3}\\pi (9^3 - 6^3)$$\n    $$\\text{Difference in Volumes} = \\frac{2}{3}\\pi (729 - 216)$$\n    $$\\text{Difference in Volumes} = \\frac{2}{3}\\pi (513)$$\n    $$\\text{Difference in Volumes} = 2 \\times 171\\pi$$\n    $$\\text{Difference in Volumes} = 342\\pi \\text{ cm}^3$$</li>\n</ol><br>\n<strong>Conclusion:</strong><br>The difference in volumes of the two solid hemispheres is $342\\pi \\text{ cm}^3$."
+          }
+        ]
+      },
+      {
+        "q_number": "Q5",
+        "topic": "Melting hemisphere into cones",
+        "question_crop": [
+          38.2,
+          45.5
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              46.2,
+              53.2
+            ],
+            "is_correct": false,
+            "student_written_text": "Answer D",
+            "feedback": "<strong>Error Analysis:</strong><br>The student selected $4:3$, which is incorrect.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li>First, we need to equate the volume of the hemisphere to the total volume of the three cones.</li>\n  <li>The formula for the volume of a hemisphere is $V_{hemisphere} = \\frac{2}{3}\\pi r^3$.</li>\n  <li>The formula for the volume of a single cone is $V_{cone} = \\frac{1}{3}\\pi r^2 h$. Therefore, the total volume of three cones is $V_{3cones} = 3 \\times (\\frac{1}{3}\\pi r^2 h) = \\pi r^2 h$.</li>\n  <li>Equating the two volumes gives us the equation: $\\frac{2}{3}\\pi r^3 = \\pi r^2 h$.</li>\n  <li>To simplify the equation, we can divide both sides by $\\pi r^2$ (assuming $r \\neq 0$): $\\frac{2}{3}r = h$.</li>\n  <li>To find the ratio $r:h$, we rearrange the equation: $\\frac{r}{h} = \\frac{3}{2}$. Thus, the ratio $r:h$ is $3:2$.</li>\n</ol><br>\n<strong>Conclusion:</strong><br>The correct ratio is $3:2$. The correct answer choice is C."
+          }
+        ]
+      },
+      {
+        "q_number": "Q6",
+        "topic": "Cone curved surface area ratio",
+        "question_crop": [
+          54.2,
+          71.0
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              60.5,
+              66.8
+            ],
+            "is_correct": true,
+            "student_written_text": "4/7",
+            "feedback": "This is the correct ratio of the slant heights of small cone $X$ to the whole cone ($4:7$)."
+          },
+          {
+            "step_number": 2,
+            "crop": [
+              63.2,
+              70.2
+            ],
+            "is_correct": false,
+            "student_written_text": "Answer C",
+            "feedback": "<strong>Error Analysis:</strong><br>The student correctly identified the ratio of slant heights as $4/7$, which implies a ratio of areas of $16:49$ for the smaller cone to the whole cone. However, the error lies in interpreting the ratio for $X:Y$. The student incorrectly provided the ratio of the area of the smaller cone ($X$) to the area of the *whole* cone ($16:49$), instead of the ratio of the area of the smaller cone ($X$) to the area of the frustum ($Y$). The area of the frustum ($Y$) is the difference between the area of the whole cone and the area of the smaller cone.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li>Let $l_1$ be the slant height of the smaller cone and $l_2$ be the slant height of the whole cone. The given ratio of slant heights is $\\frac{l_1}{l_2} = \\frac{4}{7}$.</li>\n  <li>For similar figures, the ratio of their surface areas (or base areas, depending on context, but the $16:49$ implies total surface area or a related area measure) is the square of the ratio of their corresponding linear dimensions. Let $A_1$ be the area of the smaller cone and $A_2$ be the area of the whole cone. Then, $\\frac{A_1}{A_2} = \\left(\\frac{l_1}{l_2}\\right)^2$.</li>\n  <li>Substitute the given ratio of slant heights: $\\frac{A_1}{A_2} = \\left(\\frac{4}{7}\\right)^2 = \\frac{16}{49}$. This means that if $A_1 = 16k$ for some constant $k$, then $A_2 = 49k$.</li>\n  <li>The problem defines $X$ as the area of the smaller cone, so $X = A_1 = 16k$.</li>\n  <li>The problem defines $Y$ as the area of the frustum. The frustum is the part of the whole cone remaining after the smaller cone is removed. Therefore, the area of the frustum $Y$ is the area of the whole cone minus the area of the smaller cone: $Y = A_2 - A_1$.</li>\n  <li>Substitute the expressions for $A_1$ and $A_2$ in terms of $k$: $Y = 49k - 16k = 33k$.</li>\n  <li>Now, find the ratio of $X$ to $Y$: $\\frac{X}{Y} = \\frac{16k}{33k}$.</li>\n  <li>Simplify the ratio by canceling $k$: $\\frac{X}{Y} = \\frac{16}{33}$.</li>\n</ol><br>\n<strong>Conclusion:</strong><br>The correct ratio $X:Y$ is $16:33$. The correct answer is B."
+          }
+        ]
+      },
+      {
+        "q_number": "Q7",
+        "topic": "Parallelogram area",
+        "question_crop": [
+          72.2,
+          90.0
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              83.8,
+              90.8
+            ],
+            "is_correct": true,
+            "student_written_text": "Answer B",
+            "feedback": "Excellent! The student correctly identified the area of the parallelogram as $14 \\text{ cm}^2$. Using the similarity of $\\triangle GDF$ and $\\triangle GAE$ with a scale factor of 2, and the ratio of bases $AB:DF=7:3$, the calculation yields $14 \\text{ cm}^2$."
+          }
+        ]
+      }
+    ]
+  },
+  "page_02": {
+    "page": 2,
+    "questions": [
+      {
+        "q_number": "Q7",
+        "topic": "Partial Variation and Functions",
+        "question_crop": [
+          3,
+          19
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              20,
+              24
+            ],
+            "is_correct": true,
+            "student_written_text": "f(x) = k_1x + k_2x^2",
+            "feedback": ""
+          },
+          {
+            "step_number": 2,
+            "crop": [
+              25,
+              33
+            ],
+            "is_correct": true,
+            "student_written_text": "When f(2)=2, f(2) = 2k_1 + 4k_2 = 2",
+            "feedback": ""
+          },
+          {
+            "step_number": 3,
+            "crop": [
+              34,
+              40
+            ],
+            "is_correct": true,
+            "student_written_text": "When f(-1)=f(4), f(-1) = -k_1 + k_2 = 4k_1 + 16k_2",
+            "feedback": ""
+          },
+          {
+            "step_number": 4,
+            "crop": [
+              41,
+              48
+            ],
+            "is_correct": true,
+            "student_written_text": "0 = 5k_1 + 15k_2, 5k_1 + 15k_2 = 0",
+            "feedback": ""
+          },
+          {
+            "step_number": 5,
+            "crop": [
+              49,
+              56
+            ],
+            "is_correct": true,
+            "student_written_text": "k_1 = 3, k_2 = -1",
+            "feedback": ""
+          },
+          {
+            "step_number": 6,
+            "crop": [
+              57,
+              61
+            ],
+            "is_correct": true,
+            "student_written_text": "f(x) = 3x - x^2",
+            "feedback": ""
+          },
+          {
+            "step_number": 7,
+            "crop": [
+              62,
+              69
+            ],
+            "is_correct": true,
+            "student_written_text": "f(3) = 9 - 9 = 0",
+            "feedback": ""
+          }
+        ]
+      }
+    ]
+  },
+  "page_03": {
+    "page": 3,
+    "questions": [
+      {
+        "q_number": "Q6",
+        "topic": "Polynomials: Remainder and Factor Theorems",
+        "question_crop": [
+          10.5,
+          18.2
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              24.5,
+              34.0
+            ],
+            "is_correct": false,
+            "student_written_text": "$p(-\\frac{1}{x}) = -2$",
+            "feedback": "<strong>Error Analysis:</strong><br>The student incorrectly identified the value to substitute into the polynomial. The student wrote $-\\frac{1}{x}$, which indicates a misunderstanding of how to apply the Remainder Theorem or the formula $f(-\\frac{b}{a})$ shown in the reference box. The Remainder Theorem states that for a divisor $x-c$, the value to substitute is $c$.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li>According to the Remainder Theorem, when a polynomial $p(x)$ is divided by a linear factor $x-c$, the remainder is given by $p(c)$.</li>\n  <li>In this problem, the divisor is $x-1$. To find the value $c$ to substitute, we set the divisor equal to zero: $x-1 = 0$.</li>\n  <li>Solving for $x$, we find $x = 1$. This is the value that should be substituted into the polynomial $p(x)$.</li>\n  <li>Therefore, to find the remainder when $p(x)$ is divided by $x-1$, we must evaluate $p(1)$.</li>\n</ol><br>\n<strong>Conclusion:</strong><br>The correct first step is to evaluate $p(1)$, which yields $p(1) = -2$."
+          },
+          {
+            "step_number": 2,
+            "crop": [
+              35.0,
+              52.0
+            ],
+            "is_correct": false,
+            "student_written_text": "$p(-\\frac{x}{1}) = 0$",
+            "feedback": "<strong>Error Analysis:</strong><br>The student misapplied the Factor Theorem formula. Specifically, they likely confused the variable $x$ with the constant term of the factor when determining the value to substitute into the polynomial. The common mistake is to substitute the constant term directly (e.g., $1$ instead of $-1$) or to misunderstand the relationship between a factor $(x-a)$ and the root $a$.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li>To correctly apply the Factor Theorem for a given factor, first identify the factor. In this case, the factor is $(x + 1)$.</li>\n  <li>Set the factor equal to zero to find the value of $x$ that makes the factor zero. This value is the root associated with the factor: $x + 1 = 0 \\implies x = -1$.</li>\n  <li>According to the Factor Theorem, if $(x + 1)$ is a factor of a polynomial $p(x)$, then substituting this root into the polynomial must result in zero. Therefore, $p(-1) = 0$.</li>\n</ol><br>\n<strong>Conclusion:</strong><br>The correct application of the Factor Theorem states that if $(x + 1)$ is a factor of $p(x)$, then $p(-1) = 0$."
+          }
+        ]
+      }
+    ]
+  },
+  "page_04": {
+    "page": 4,
+    "questions": [
+      {
+        "q_number": "Q8",
+        "topic": "Quadratic functions and coordinate geometry",
+        "question_crop": [
+          3.5,
+          24.5
+        ],
+        "steps": []
+      }
+    ]
+  },
+  "page_05": {
+    "page": 5,
+    "questions": [
+      {
+        "q_number": "Q3",
+        "topic": "Trigonometric graph parameters",
+        "question_crop": [
+          3,
+          26
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              16,
+              26
+            ],
+            "is_correct": true,
+            "student_written_text": "B",
+            "feedback": "Correct. The graph of $y = k \\cos 3x^\\circ$ starts at $(0, -1/2)$, which implies $k = -1/2$. The first maximum point after $x=0$ occurs at $x = \\theta$. For the function $y = -1/2 \\cos 3x$, the maximum value is reached when $\\cos 3x = -1$. This gives $3x = 180^\\circ$, so $x = 60^\\circ$. Therefore, $\\theta = 60$."
+          }
+        ]
+      },
+      {
+        "q_number": "Q4",
+        "topic": "Quadratic functions and roots",
+        "question_crop": [
+          31,
+          46
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              36,
+              46
+            ],
+            "is_correct": false,
+            "student_written_text": "C",
+            "feedback": "<strong>Error Analysis:</strong><br>The student incorrectly assumed that statement C was always true. Statement C likely asserted that the equation $g(x)+2=0$ has no real roots. However, the existence of real roots for $g(x)+2=0$ depends on the leading coefficient $a$ of the quadratic function. Specifically, if $a < 0$, the equation $g(x)+2=0$ will have real roots, which contradicts the assumption that statement C is universally true.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li><strong>Determine the function's equation from its vertex.</strong><br>Given that the vertex of $g(x)$ is $(-6, 2)$, the function can be written in vertex form as $g(x) = a(x - h)^2 + k$, where $(h, k)$ is the vertex. Substituting the vertex coordinates, we get $g(x) = a(x - (-6))^2 + 2$, which simplifies to $g(x) = a(x+6)^2 + 2$.</li>\n  <li><strong>Analyze Statement A: Evaluate $g(x) - 2 = 0$.</strong><br>Substitute the expression for $g(x)$: $a(x+6)^2 + 2 - 2 = 0$. This simplifies to $a(x+6)^2 = 0$. Assuming $a \\ne 0$ (for $g(x)$ to be a quadratic function), we can divide by $a$: $(x+6)^2 = 0$. This equation has a repeated real root at $x = -6$. Since $-6$ is a negative number, Statement A (which states $g(x)-2=0$ has a negative real root) is true.</li>\n  <li><strong>Analyze Statement C: Evaluate $g(x) + 2 = 0$.</strong><br>Substitute the expression for $g(x)$: $a(x+6)^2 + 2 + 2 = 0$. This simplifies to $a(x+6)^2 + 4 = 0$. Rearranging the equation to solve for $(x+6)^2$: $a(x+6)^2 = -4$.</li>\n  <li><strong>Determine the nature of the roots for $a(x+6)^2 = -4$ based on the sign of $a$.</strong><br>To isolate $(x+6)^2$, divide both sides by $a$: $(x+6)^2 = \\frac{-4}{a}$.\n    <ul>\n      <li><strong>Case 1: If $a > 0$</strong> (the parabola opens upwards).<br>In this case, $\\frac{-4}{a}$ is a negative number. Since the square of any real number cannot be negative, the equation $(x+6)^2 = \\text{negative number}$ has no real solutions. Thus, if $a > 0$, $g(x)+2=0$ has no real roots.</li>\n      <li><strong>Case 2: If $a < 0$</strong> (the parabola opens downwards).<br>In this case, $\\frac{-4}{a}$ is a positive number (since $-4$ divided by a negative $a$ yields a positive result). Since the square of a real number can be positive, the equation $(x+6)^2 = \\text{positive number}$ has two distinct real solutions: $x+6 = \\pm \\sqrt{\\frac{-4}{a}}$. Thus, if $a < 0$, $g(x)+2=0$ has real roots.</li>\n    </ul>\n  </li>\n  <li><strong>Conclude on Statement C.</strong><br>Since the existence of real roots for $g(x)+2=0$ depends on the sign of $a$ (no real roots if $a>0$, but real roots if $a<0$), Statement C (likely stating $g(x)+2=0$ has no real roots) is not always true. The student's error was in assuming it was always true.</li>\n</ol><br>\n<strong>Conclusion:</strong><br>Statement A is definitively true, as $g(x)-2=0$ always yields a repeated root at $x=-6$. The student's error lies in assuming Statement C is universally true. Statement C (likely \"$g(x)+2=0$ has no real roots\") is only true when $a>0$; it is false when $a<0$. Therefore, Statement C is not necessarily true."
+          }
+        ]
+      },
+      {
+        "q_number": "Q5",
+        "topic": "Quadratic graph transformations",
+        "question_crop": [
+          50,
+          64
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              65,
+              76
+            ],
+            "is_correct": false,
+            "student_written_text": "B",
+            "feedback": "<strong>Error Analysis:</strong><br>The student's final result for the transformed function and its vertex is mathematically correct. However, the intermediate step in the transformation from $y = -[3(3x+3m)^2 - 5m^2]$ to $y = -3[3(x+m)]^2 + 5m^2$ could be presented more clearly to avoid potential confusion. When factoring out $3$ from $(3x+3m)$ to get $3(x+m)$, the square applies to both factors, so $(3(x+m))^2 = 3^2(x+m)^2 = 9(x+m)^2$. Therefore, the term $3(3x+3m)^2$ becomes $3 \\cdot 9(x+m)^2 = 27(x+m)^2$. The student's notation of $-3[3(x+m)]^2$ suggests that the initial coefficient of $3$ was simply moved outside the brackets, and only the inner $3$ was squared, which is not the precise algebraic operation, even though the final coefficient of $-27$ is correctly achieved. A clearer step would be to first fully simplify the squared term to $27(x+m)^2$ before distributing the negative sign from $-f(3x)$.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li>First, we complete the square for the given function $f(x) = 3x^2 + 18mx + 22m^2$.\n    We factor out the coefficient of $x^2$:\n    $$f(x) = 3(x^2 + 6mx) + 22m^2$$\n    To complete the square for the expression inside the parenthesis, $x^2 + 6mx$, we add and subtract $(\\frac{6m}{2})^2 = (3m)^2 = 9m^2$:\n    $$f(x) = 3(x^2 + 6mx + 9m^2 - 9m^2) + 22m^2$$\n    Group the perfect square trinomial:\n    $$f(x) = 3((x+3m)^2 - 9m^2) + 22m^2$$\n    Distribute the $3$ to both terms inside the parenthesis:\n    $$f(x) = 3(x+3m)^2 - 3(9m^2) + 22m^2$$\n    $$f(x) = 3(x+3m)^2 - 27m^2 + 22m^2$$\n    Combine the constant terms:\n    $$f(x) = 3(x+3m)^2 - 5m^2$$\n  </li>\n  <li>Next, we find the transformed function $y = -f(3x)$. We substitute $3x$ for every $x$ in the completed square form of $f(x)$:\n    $$f(3x) = 3((3x)+3m)^2 - 5m^2$$\n    $$f(3x) = 3(3x+3m)^2 - 5m^2$$\n    Factor out $3$ from the term $(3x+3m)$ inside the squared expression:\n    $$f(3x) = 3(3(x+m))^2 - 5m^2$$\n    Apply the exponent rule $(ab)^2 = a^2b^2$ to $(3(x+m))^2$:\n    $$f(3x) = 3 \\cdot (3^2 \\cdot (x+m)^2) - 5m^2$$\n    $$f(3x) = 3 \\cdot 9 \\cdot (x+m)^2 - 5m^2$$\n    Multiply the coefficients:\n    $$f(3x) = 27(x+m)^2 - 5m^2$$\n  </li>\n  <li>Now, we apply the negative sign to the entire expression for $f(3x)$ to find $y = -f(3x)$:\n    $$y = -[27(x+m)^2 - 5m^2]$$\n    Distribute the negative sign to both terms inside the square brackets:\n    $$y = -27(x+m)^2 + 5m^2$$\n  </li>\n  <li>This transformed function $y = -27(x+m)^2 + 5m^2$ is now in the vertex form $y = a(x-h)^2 + k$.\n    By comparing $y = -27(x+m)^2 + 5m^2$ with the general vertex form $y = a(x-h)^2 + k$:\n    We identify $a = -27$, $h = -m$ (since $x+m = x-(-m)$), and $k = 5m^2$.\n    The vertex of the parabola is $(h, k)$, so the vertex is $(-m, 5m^2)$.\n    The y-coordinate of the vertex is $5m^2$.\n    The axis of symmetry is the vertical line $x=h$, so the axis of symmetry is $x = -m$, which can also be written as $x+m=0$.\n  </li>\n</ol><br>\n<strong>Conclusion:</strong><br>The transformed function is $y = -27(x+m)^2 + 5m^2$. The vertex of this graph is $(-m, 5m^2)$, and its axis of symmetry is $x+m=0$. Therefore, Statement II (y-coordinate is $5m^2$) and Statement III (axis of symmetry $x+m=0$) are both true."
+          }
+        ]
+      }
+    ]
+  },
+  "page_06": {
+    "page": 6,
+    "questions": [
+      {
+        "q_number": "Q6",
+        "topic": "Solving equations using graphs",
+        "question_crop": [
+          4,
+          26
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              28,
+              61
+            ],
+            "is_correct": false,
+            "student_written_text": "",
+            "feedback": "<strong>Error Analysis:</strong><br>The question was not attempted.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li>The given equation to solve is $$-x^3 - 3x^2 + 4 = 0$$. We are instructed to use the graph of $y = -x^3 - 3x^2 + 5$. To do this, we need to rewrite the given equation so that one side matches the expression from the graph, $$-x^3 - 3x^2 + 5$$.\n    Start with the original equation:\n    $$-x^3 - 3x^2 + 4 = 0$$\n    To get $$-x^3 - 3x^2 + 5$$ on the left side, we need to add $1$ to both sides of the equation:\n    $$-x^3 - 3x^2 + 4 + 1 = 0 + 1$$\n    This simplifies to:\n    $$-x^3 - 3x^2 + 5 = 1$$</li>\n  <li>Now, we interpret the rewritten equation graphically. The left side of the equation, $$-x^3 - 3x^2 + 5$$, represents the function $y = -x^3 - 3x^2 + 5$, which is the given graph. The right side of the equation, $1$, represents a horizontal line $y = 1$. Therefore, solving the equation $$-x^3 - 3x^2 + 5 = 1$$ is equivalent to finding the $x$-coordinates where the graph of $y = -x^3 - 3x^2 + 5$ intersects the horizontal line $y = 1$.</li>\n  <li>By observing the provided graph, locate the horizontal line $y = 1$. Identify the $x$-coordinates of the points where this line intersects the curve $y = -x^3 - 3x^2 + 5$. From the graph, the line $y = 1$ intersects the curve at two points, corresponding to $x = -2$ and $x = 1$.</li>\n</ol><br>\n<strong>Conclusion:</strong><br>The solutions to the equation $$-x^3 - 3x^2 + 4 = 0$$ are $x = -2$ and $x = 1$."
+          }
+        ]
+      },
+      {
+        "q_number": "Q7",
+        "topic": "Trigonometric graph parameters",
+        "question_crop": [
+          62,
+          86
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              69,
+              93
+            ],
+            "is_correct": false,
+            "student_written_text": "",
+            "feedback": "<strong>Error Analysis:</strong><br>The student did not provide an answer or solution for this problem.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li>Identify the properties of the given trigonometric function $y = a \\cos(x + b^\\circ)$.\n    <ul>\n      <li>The general form of the function is $y = a \\cos(x + b^\\circ)$.</li>\n      <li>The minimum point (trough) is given as $(110^\\circ, -4)$.</li>\n      <li>For a cosine function $y = A \\cos(\\theta)$, if $A > 0$, its minimum value is $-A$.</li>\n      <li>In our case, the minimum value of $a \\cos(x + b^\\circ)$ is $-a$ (assuming $a > 0$).</li>\n    </ul>\n  </li>\n  <li>Determine the value of $a$ using the minimum value of the function.\n    <ul>\n      <li>From the given minimum point $(110^\\circ, -4)$, the minimum value of the function is $-4$.</li>\n      <li>Equate the theoretical minimum value to the given minimum value: $-a = -4$.</li>\n      <li>Solving for $a$, we get $a = 4$. This confirms our assumption that $a > 0$.</li>\n    </ul>\n  </li>\n  <li>Determine the value of $b$ using the $x$-coordinate of the minimum point.\n    <ul>\n      <li>The cosine function $\\cos(\\theta)$ reaches its minimum value of $-1$ when its argument $\\theta$ is $180^\\circ$ (or $180^\\circ + n \\cdot 360^\\circ$ for integer $n$).</li>\n      <li>For the function $y = a \\cos(x + b^\\circ)$, the argument is $(x + b^\\circ)$.</li>\n      <li>The minimum occurs at $x = 110^\\circ$. Therefore, we set the argument equal to $180^\\circ$: $110^\\circ + b^\\circ = 180^\\circ$.</li>\n      <li>Solving for $b^\\circ$: $b^\\circ = 180^\\circ - 110^\\circ = 70^\\circ$.</li>\n      <li>Thus, $b = 70$.</li>\n    </ul>\n  </li>\n  <li>Verify if the calculated value of $b$ falls within the specified range.\n    <ul>\n      <li>The problem states that $-90 < b < 90$.</li>\n      <li>Our calculated value $b = 70$ satisfies this condition, as $-90 < 70 < 90$.</li>\n    </ul>\n  </li>\n</ol><br>\n<strong>Conclusion:</strong><br>The correct values are $a = 4$ and $b = 70$."
+          }
+        ]
+      }
+    ]
+  },
+  "page_07": {
+    "page": 7,
+    "questions": [
+      {
+        "q_number": "Q9",
+        "topic": "Quadratic vertex and transformations",
+        "question_crop": [
+          4,
+          38
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              42,
+              95
+            ],
+            "is_correct": false,
+            "student_written_text": "",
+            "feedback": "<strong>Error Analysis:</strong><br>The student did not attempt the question, so there is no specific work to analyze for errors.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li>To find the vertex $P$ of the quadratic function $f(x) = x^2 - 6kx + 2k^2 - 8$, we use the method of completing the square.\n    We want to express $f(x)$ in the form $a(x-h)^2 + k'$.\n    First, group the terms involving $x$:\n    $$f(x) = (x^2 - 6kx) + 2k^2 - 8$$\n    To complete the square for $x^2 - 6kx$, we need to add and subtract $\\left(\\frac{-6k}{2}\\right)^2 = (-3k)^2 = 9k^2$:\n    $$f(x) = (x^2 - 6kx + 9k^2) - 9k^2 + 2k^2 - 8$$\n    Now, factor the perfect square trinomial and combine the constant terms:\n    $$f(x) = (x - 3k)^2 - 7k^2 - 8$$\n    From this vertex form, the coordinates of the vertex $P$ are $(h, k')$.\n    Therefore, $P = (3k, -7k^2 - 8)$.\n  </li>\n  <li>Understand the transformations applied to $f(x)$ to obtain the new function.\n    The transformation from $f(x)$ to $f\\left(\\frac{x}{3}\\right) + 12$ involves two distinct operations:\n    <ul>\n      <li>The term $f\\left(\\frac{x}{3}\\right)$ indicates a horizontal stretch of the graph of $f(x)$ by a factor of $3$. This means that the x-coordinate of any point on the graph of $f(x)$ is multiplied by $3$.</li>\n      <li>The term $+ 12$ indicates a vertical translation upwards by $12$ units. This means that $12$ is added to the y-coordinate of any point on the graph of $f(x)$.</li>\n    </ul>\n  </li>\n  <li>Apply the transformations to find the coordinates of vertex $Q$ and then determine the coordinates of vertex $R$.\n    <ul>\n      <li><strong>Finding $Q$:</strong>\n        Vertex $P$ is $(3k, -7k^2 - 8)$. Applying the transformations described in the previous step:\n        The new x-coordinate, $x_Q = 3 \\times (3k) = 9k$.\n        The new y-coordinate, $y_Q = (-7k^2 - 8) + 12 = -7k^2 + 4$.\n        Thus, the coordinates of $Q$ are $(9k, -7k^2 + 4)$.\n      </li>\n      <li><strong>Finding $R$:</strong>\n        The transformation for $R$ involves reflecting $y = f(x)$ with respect to the x-axis, and then translating it $90$ units to the left.\n        Reflecting $P(3k, -7k^2 - 8)$ with respect to the x-axis changes the sign of the y-coordinate:\n        $$(3k, -(-7k^2 - 8)) = (3k, 7k^2 + 8)$$\n        Translating this point $90$ units to the left subtracts $90$ from the x-coordinate:\n        $$(3k - 90, 7k^2 + 8)$$\n        Thus, the coordinates of $R$ are $(3k - 90, 7k^2 + 8)$.\n      </li>\n    </ul>\n  </li>\n  <li>Use the condition that $PQ \\perp QR$ to find the value of $k$.\n    <ul>\n      <li>If two line segments are perpendicular, the product of their slopes must be $-1$. So, we must have $m_{PQ} \\cdot m_{QR} = -1$.</li>\n      <li><strong>Calculate the slope of $PQ$, $m_{PQ}$:</strong>\n        Using points $P(3k, -7k^2 - 8)$ and $Q(9k, -7k^2 + 4)$:\n        $$m_{PQ} = \\frac{y_Q - y_P}{x_Q - x_P} = \\frac{(-7k^2 + 4) - (-7k^2 - 8)}{9k - 3k}$$\n        $$m_{PQ} = \\frac{-7k^2 + 4 + 7k^2 + 8}{6k} = \\frac{12}{6k} = \\frac{2}{k}$$\n      </li>\n      <li><strong>Calculate the slope of $QR$, $m_{QR}$:</strong>\n        Using points $Q(9k, -7k^2 + 4)$ and $R(3k - 90, 7k^2 + 8)$:\n        $$m_{QR} = \\frac{y_R - y_Q}{x_R - x_Q} = \\frac{(7k^2 + 8) - (-7k^2 + 4)}{(3k - 90) - 9k}$$\n        $$m_{QR} = \\frac{7k^2 + 8 + 7k^2 - 4}{3k - 90 - 9k} = \\frac{14k^2 + 4}{-6k - 90}$$\n        Factor out common terms from the numerator and denominator:\n        $$m_{QR} = \\frac{2(7k^2 + 2)}{-6(k + 15)} = \\frac{7k^2 + 2}{-3(k + 15)}$$\n      </li>\n      <li><strong>Set the product of slopes to $-1$ and solve for $k$:</strong>\n        $$m_{PQ} \\cdot m_{QR} = -1$$\n        $$\\left(\\frac{2}{k}\\right) \\cdot \\left(\\frac{7k^2 + 2}{-3(k + 15)}\\right) = -1$$\n        $$\\frac{2(7k^2 + 2)}{-3k(k + 15)} = -1$$\n        Multiply both sides by $-3k(k + 15)$ to clear the denominator:\n        $$2(7k^2 + 2) = 3k(k + 15)$$\n        $$14k^2 + 4 = 3k^2 + 45k$$\n        Rearrange the terms to form a standard quadratic equation:\n        $$14k^2 - 3k^2 - 45k + 4 = 0$$\n        $$11k^2 - 45k + 4 = 0$$\n      </li>\n      <li><strong>Solve the quadratic equation for $k$:</strong>\n        We can solve this quadratic equation by factoring. We look for two numbers that multiply to $11 \\times 4 = 44$ and add to $-45$. These numbers are $-44$ and $-1$.\n        $$11k^2 - 44k - k + 4 = 0$$\n        $$11k(k - 4) - 1(k - 4) = 0$$\n        $$(11k - 1)(k - 4) = 0$$\n        This gives two possible solutions for $k$:\n        $$11k - 1 = 0 \\Rightarrow k = \\frac{1}{11}$$\n        $$k - 4 = 0 \\Rightarrow k = 4$$\n      </li>\n      <li><strong>Apply the given condition:</strong>\n        The problem states that $k > 1$.\n        Comparing the two solutions, $k = \\frac{1}{11}$ does not satisfy the condition $k > 1$, but $k = 4$ does.\n        Therefore, the value of $k$ is $4$.\n      </li>\n    </ul>\n  </li>\n</ol><br>\n<strong>Conclusion:</strong><br>The final value for $k$ is $4$."
+          }
+        ]
+      }
+    ]
+  },
+  "page_08": {
+    "page": 8,
+    "questions": [
+      {
+        "q_number": "Q5",
+        "topic": "Quadratic functions and properties",
+        "question_crop": [
+          4.5,
+          20.5
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              21.5,
+              24.5
+            ],
+            "is_correct": true,
+            "student_written_text": "a i) Let x = 0, y = -12",
+            "feedback": "Correct. To find the y-intercept where the graph cuts the y-axis, we substitute $x = 0$ and $y = -12$ into the given equation."
+          },
+          {
+            "step_number": 2,
+            "crop": [
+              24.5,
+              27.5
+            ],
+            "is_correct": true,
+            "student_written_text": "-12 = -c",
+            "feedback": "Correct substitution into $y = x^2 + 4x - c$."
+          },
+          {
+            "step_number": 3,
+            "crop": [
+              27.5,
+              30.5
+            ],
+            "is_correct": true,
+            "student_written_text": "c = 12",
+            "feedback": "Correct value for $c$."
+          },
+          {
+            "step_number": 4,
+            "crop": [
+              30.5,
+              34.0
+            ],
+            "is_correct": true,
+            "student_written_text": "ii) Let y = 0",
+            "feedback": "Correct. To find the x-intercepts, we set the function $y$ to zero."
+          },
+          {
+            "step_number": 5,
+            "crop": [
+              34.0,
+              37.0
+            ],
+            "is_correct": true,
+            "student_written_text": "x^2 + 4x - 12 = 0",
+            "feedback": "Correct quadratic equation for finding the x-intercepts."
+          },
+          {
+            "step_number": 6,
+            "crop": [
+              37.0,
+              40.0
+            ],
+            "is_correct": true,
+            "student_written_text": "x = 2 or x = -6",
+            "feedback": "Correct solutions. Factoring the quadratic gives $(x+6)(x-2)=0$, leading to $x = -6$ and $x = 2$."
+          },
+          {
+            "step_number": 7,
+            "crop": [
+              40.0,
+              43.5
+            ],
+            "is_correct": true,
+            "student_written_text": ".: x-ints are 2 and -6",
+            "feedback": "Correct final answer for the x-intercepts."
+          },
+          {
+            "step_number": 8,
+            "crop": [
+              45.5,
+              48.5
+            ],
+            "is_correct": false,
+            "student_written_text": "b)",
+            "feedback": "<strong>Error Analysis:</strong><br>The student did not attempt part (b) of the problem. Therefore, no work was submitted for evaluation for this section.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li><strong>For part (b)(i): Find the vertex of the parabola.</strong>\n    <br>Assuming the original quadratic function was in the form $y = x^2 + 4x - 12$ (or similar, leading to the given vertex form), we complete the square to find the vertex.\n    <br>$$y = x^2 + 4x - 12$$\n    <br>Group the $x$ terms and complete the square:\n    <br>$$y = (x^2 + 4x + 4) - 4 - 12$$\n    <br>$$y = (x+2)^2 - 16$$\n    <br>From the vertex form $y = a(x-h)^2 + k$, the vertex is $(h, k)$.\n    <br>Thus, the vertex $V$ is $(-2, -16)$.\n  </li>\n  <li><strong>For part (b)(ii): Find the area of the circle passing through the given points.</strong>\n    <br>The circle passes through points $P(-2, 0)$, $V(-2, -16)$, and the origin $O(0, 0)$.\n    <br>The general equation of a circle is $x^2 + y^2 + Dx + Ey + F = 0$.\n    <br>Substitute $O(0, 0)$ into the equation:\n    <br>$$(0)^2 + (0)^2 + D(0) + E(0) + F = 0 \\implies F = 0$$\n    <br>So, the equation becomes $x^2 + y^2 + Dx + Ey = 0$.\n    <br>Substitute $P(-2, 0)$ into the equation:\n    <br>$$(-2)^2 + (0)^2 + D(-2) + E(0) = 0$$\n    <br>$$4 - 2D = 0 \\implies 2D = 4 \\implies D = 2$$\n    <br>Now the equation is $x^2 + y^2 + 2x + Ey = 0$.\n    <br>Substitute $V(-2, -16)$ into the equation:\n    <br>$$(-2)^2 + (-16)^2 + 2(-2) + E(-16) = 0$$\n    <br>$$4 + 256 - 4 - 16E = 0$$\n    <br>$$256 - 16E = 0 \\implies 16E = 256 \\implies E = 16$$\n    <br>The equation of the circle is $x^2 + y^2 + 2x + 16y = 0$.\n  </li>\n  <li><strong>Find the center and radius of the circle.</strong>\n    <br>To find the center and radius, complete the square for the circle's equation:\n    <br>$$(x^2 + 2x) + (y^2 + 16y) = 0$$\n    <br>$$(x^2 + 2x + 1) + (y^2 + 16y + 64) = 1 + 64$$\n    <br>$$(x+1)^2 + (y+8)^2 = 65$$\n    <br>Comparing this to the standard form $(x-h)^2 + (y-k)^2 = r^2$, we find:\n    <br>The center of the circle is $C(-1, -8)$.\n    <br>The radius squared is $r^2 = 65$.\n    <br>The radius is $r = \\sqrt{65}$.\n  </li>\n  <li><strong>Calculate the area of the circle.</strong>\n    <br>The area of a circle is given by the formula $A = \\pi r^2$.\n    <br>$$A = \\pi (65)$$\n    <br>$$A = 65\\pi$$\n  </li>\n</ol><br>\n<strong>Conclusion:</strong><br>The vertex of the parabola is $V(-2, -16)$, and the area of the circle passing through $P(-2, 0)$, $V(-2, -16)$, and $O(0, 0)$ is $65\\pi$."
+          }
+        ]
+      }
+    ]
+  },
+  "page_09": {
+    "page": 9,
+    "questions": [
+      {
+        "q_number": "Q7",
+        "topic": "Polynomials: Long Division and Factor Theorem",
+        "question_crop": [
+          4.2,
+          14.8
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              16.0,
+              19.5
+            ],
+            "is_correct": true,
+            "student_written_text": "a)",
+            "feedback": "Correct labeling for the start of part (a)."
+          },
+          {
+            "step_number": 2,
+            "crop": [
+              20.0,
+              38.0
+            ],
+            "is_correct": false,
+            "student_written_text": "Long division setup: $x^2+4x+5$ dividing $3x^3+ax^2+18x+b$, resulting in $(a-12)x^2 + 3x + b$.",
+            "feedback": "<strong>Error Analysis:</strong><br>The student correctly started the long division process and successfully identified the first intermediate remainder as $(a-12)x^2 + 3x + b$. However, the work is incomplete because the long division was not carried out to its conclusion, which is essential for determining the values of the unknown coefficients $a$ and $b$.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li>**Continue Long Division:** Based on the intermediate remainder $(a-12)x^2 + 3x + b$, the division must continue. To eliminate the $x^2$ term, divide $(a-12)x^2$ by the leading term of the divisor, $x^2$. This yields $(a-12)$ as the next term in the quotient.</li>\n  <li>**Determine Final Remainder:** Multiplying this new quotient term, $(a-12)$, by the divisor (assumed to be $x^2+5x-6$ from context, though not explicitly stated in the feedback, the feedback provides the final remainder directly), and subtracting it from the current remainder would lead to the final remainder. The feedback states that the final remainder, after completing the division, is $$(51-4a)x + (b-5a+60)$$.</li>\n  <li>**Equate Coefficients for $a$ and $b$ (Part a):** The problem specifies that the final remainder must be $$-5x + 30$$. By equating the coefficients of the derived remainder with the given remainder, we form a system of two linear equations:\n    <ul>\n      <li>For the $x$ term: $$51 - 4a = -5$$</li>\n      <li>For the constant term: $$b - 5a + 60 = 30$$</li>\n    </ul>\n  </li>\n  <li>**Solve for $a$ (Part a):** Solve the first equation for $a$:\n    $$51 - 4a = -5$$\n    $$51 + 5 = 4a$$\n    $$56 = 4a$$\n    $$a = \\frac{56}{4}$$\n    $$a = 14$$</li>\n  <li>**Solve for $b$ (Part a):** Substitute the value of $a=14$ into the second equation and solve for $b$:\n    $$b - 5(14) + 60 = 30$$\n    $$b - 70 + 60 = 30$$\n    $$b - 10 = 30$$\n    $$b = 30 + 10$$\n    $$b = 40$$</li>\n  <li>**Apply Factor Theorem (Part b):** For part (b), the feedback states that $p(-4) = 0$. According to the Factor Theorem, if a polynomial $p(x)$ has a root at $x=c$ (i.e., $p(c)=0$), then $(x-c)$ is a factor of $p(x)$. Therefore, since $p(-4)=0$, $(x - (-4))$, which simplifies to $(x+4)$, is a factor of $p(x)$.</li>\n  <li>**Calculate Discriminant (Part c):** For part (c), consider the quadratic expression $3x^2+2x+10$. To determine the nature of its roots, calculate the discriminant $\\Delta$ using the formula $$\\Delta = b^2 - 4ac$$. For this quadratic, $a=3$, $b=2$, and $c=10$.\n    $$\\Delta = (2)^2 - 4(3)(10)$$\n    $$\\Delta = 4 - 120$$\n    $$\\Delta = -116$$</li>\n  <li>**Interpret Discriminant (Part c):** Since the discriminant $\\Delta = -116$ is less than zero ($$\\Delta < 0$$), the quadratic equation $3x^2+2x+10=0$ has no real roots. Instead, it has two distinct complex conjugate roots. Consequently, there are no irrational real roots.</li>\n</ol><br>\n<strong>Conclusion:</strong><br>\nPart (a): The values are $a=14$ and $b=40$.<br>\nPart (b): Since $p(-4)=0$, $(x+4)$ is a factor of the polynomial $p(x)$.<br>\nPart (c): The discriminant of the quadratic $3x^2+2x+10$ is $\\Delta = -116$, indicating that it has no irrational real roots (only complex roots)."
+          }
+        ]
+      }
+    ]
+  },
+  "page_10": {
+    "page": 10,
+    "questions": [
+      {
+        "q_number": "Q12",
+        "topic": "Quadratic functions and coordinate geometry of triangles",
+        "question_crop": [
+          4.5,
+          24.0
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              24.0,
+              28.0
+            ],
+            "is_correct": false,
+            "student_written_text": "a)",
+            "feedback": "<strong>Error Analysis:</strong><br>The student has only written the part label (a) and has not provided any mathematical work or calculations.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li>To find the coordinates of the vertex $Q$ for a quadratic function in the form $f(x) = ax^2 + bx + c$, we can use the method of completing the square to transform the function into vertex form $f(x) = a(x-h)^2 + k$, where the vertex is at $(h, k)$. The given function is $f(x) = x^2 - (6k+2)x + 9k^2 + 5k + 1$.</li>\n  <li>Identify the coefficient of the $x$ term, which is $-(6k+2)$.</li>\n  <li>Take half of the coefficient of the $x$ term and square it: $\\left(-\\frac{6k+2}{2}\\right)^2 = \\left(-(3k+1)\\right)^2 = (3k+1)^2$.</li>\n  <li>Add and subtract this term to the expression for $f(x)$ to complete the square for the $x$ terms:\n    $$f(x) = x^2 - (6k+2)x + (3k+1)^2 - (3k+1)^2 + 9k^2 + 5k + 1$$</li>\n  <li>Group the first three terms to form a perfect square trinomial and simplify the remaining constant terms:\n    $$f(x) = [x^2 - (6k+2)x + (3k+1)^2] - [(3k+1)^2 - (9k^2 + 5k + 1)]$$\n    $$f(x) = [x - (3k+1)]^2 - [9k^2 + 6k + 1 - 9k^2 - 5k - 1]$$\n    $$f(x) = [x - (3k+1)]^2 - k$$</li>\n  <li>Compare this completed square form $f(x) = [x - (3k+1)]^2 - k$ with the general vertex form $f(x) = a(x-h)^2 + k$. Here, $a=1$, $h = 3k+1$, and the constant term outside the square is $-k$.</li>\n</ol><br>\n<strong>Conclusion:</strong><br>The vertex $Q$ of the function $y=f(x)$ is at the coordinates $(3k+1, -k)$."
+          }
+        ]
+      }
+    ]
+  },
+  "page_11": {
+    "page": 11,
+    "questions": [
+      {
+        "q_number": "Q8",
+        "topic": "Locus of a point (Circle)",
+        "question_crop": [
+          4.5,
+          23.5
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              24.0,
+              29.5
+            ],
+            "is_correct": true,
+            "student_written_text": "a) $\\Gamma$ is a circle with centre $A$ and radius of 8 units.",
+            "feedback": "Correct. The locus of a point maintaining a fixed distance from a fixed point is a circle."
+          },
+          {
+            "step_number": 2,
+            "crop": [
+              30.5,
+              37.5
+            ],
+            "is_correct": true,
+            "student_written_text": "b) Let $\\Gamma$ be $(x, y)$\n$\\sqrt{(x+2)^2 + (y-7)^2} = 8$",
+            "feedback": "Correct setup using the distance formula for the circle equation."
+          },
+          {
+            "step_number": 3,
+            "crop": [
+              37.5,
+              41.0
+            ],
+            "is_correct": true,
+            "student_written_text": "$(x+2)^2 + (y-7)^2 = 64$\n$x^2+4x+4+y^2-14y+49=64$",
+            "feedback": "Correct expansion of the squared binomials."
+          },
+          {
+            "step_number": 4,
+            "crop": [
+              41.0,
+              48.5
+            ],
+            "is_correct": true,
+            "student_written_text": "$x^2+y^2+4x-14y-11=0$\n$\\therefore$ equation of $\\Gamma$ is $x^2+y^2+4x-14y-11=0$",
+            "feedback": "Correct simplification to the general form of the circle equation."
+          },
+          {
+            "step_number": 5,
+            "crop": [
+              49.5,
+              55.5
+            ],
+            "is_correct": false,
+            "student_written_text": "c) i) $A, P, Q$ is a straight line",
+            "feedback": "<strong>Error Analysis:</strong><br>The student correctly observed that the points $A, P,$ and $Q$ are located on a single line. However, the use of the phrase \"lie on a line\" is less mathematically precise than the term \"collinear\". Additionally, the student's statement concerning the condition \"for $P$ to be farthest from $Q$\" is imprecise. While $A$ lying between $P$ and $Q$ does define a specific linear arrangement where $PQ = PA + AQ$, this specific arrangement does not inherently mean $P$ is \"farthest from $Q$\" without further context regarding other points or distances.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li><strong>Precise Terminology for Points on a Line:</strong> When three or more points, such as $A, P,$ and $Q$, are situated on a single straight line, the accurate mathematical term to describe this property is \"collinear\". Therefore, it is more precise to state that points $A, P,$ and $Q$ are <strong>collinear</strong>.</li>\n  <li><strong>Understanding Geometric Order and Distances:</strong> If the intended arrangement is such that point $A$ is positioned <strong>between</strong> points $P$ and $Q$ on the line, this establishes a specific order. In this configuration, the total distance between $P$ and $Q$ is the sum of the distances from $P$ to $A$ and from $A$ to $Q$. This relationship is"
+          }
+        ]
+      }
+    ]
+  },
+  "page_12": {
+    "page": 12,
+    "questions": [
+      {
+        "q_number": "Q8",
+        "topic": "Locus and Coordinate Geometry",
+        "question_crop": [
+          4.0,
+          23.0
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              23.0,
+              29.5
+            ],
+            "is_correct": false,
+            "student_written_text": "a) \\u0393 is the mid-point of line AB",
+            "feedback": "<strong>Error Analysis:</strong><br>The student's error lies in identifying only the midpoint of the line segment $AB$ as the locus $\\Gamma$. While the midpoint is indeed a point on the locus, it does not represent the entire set of points that are equidistant from $A$ and $B$. The locus is a continuous geometric figure, not a single point.<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li>Recall the definition of a locus of points: it is the set of all points that satisfy a given condition. In this case, the condition is that each point on the locus must be equidistant from two distinct points $A$ and $B$.</li>\n  <li>Consider any point $P$ such that its distance from $A$ is equal to its distance from $B$, i.e., $PA = PB$. Geometrically, the set of all such points $P$ forms a straight line.</li>\n  <li>This line has two key properties: it is perpendicular to the line segment $AB$, and it passes through the midpoint of $AB$. Therefore, this line is known as the perpendicular bisector of $AB$.</li>\n</ol><br>\n<strong>Conclusion:</strong><br>The locus $\\Gamma$ of points equidistant from two distinct points $A$ and $B$ is the perpendicular bisector of the line segment $AB$."
+          },
+          {
+            "step_number": 2,
+            "crop": [
+              29.5,
+              36.5
+            ],
+            "is_correct": false,
+            "student_written_text": "b)",
+            "feedback": "<strong>Error Analysis:</strong><br>The student did not provide an answer for part (b).<br><br>\n<strong>Step-by-Step Solution:</strong>\n<ol>\n  <li>Calculate the slope of the perpendicular bisector $\\Gamma$. The equation of $\\Gamma$ is $x + y - 12 = 0$, which can be rewritten as $y = -x + 12$. Therefore, the slope of $\\Gamma$, denoted as $m_{\\Gamma}$, is $m_{\\Gamma} = -1$.</li>\n  <li>Determine the slope of line $AB$. Since $\\Gamma$ is the perpendicular bisector of $AB$, the line $AB$ is perpendicular to $\\Gamma$. The product of the slopes of two perpendicular lines is $-1$. Thus, $m_{AB} \\cdot m_{\\Gamma} = -1 \\implies m_{AB} \\cdot (-1) = -1 \\implies m_{AB} = 1$.</li>\n  <li>Find the equation of line $AB$. Using the point-slope form $y - y_1 = m(x - x_1)$ with point $A(8, 9)$ and slope $m_{AB} = 1$:\n    $$y - 9 = 1(x - 8)$$\n    $$y - 9 = x - 8$$\n    $$x - y + 1 = 0$$</li>\n  <li>Find the coordinates of the midpoint $M$ of $AB$. The midpoint $M$ is the intersection of the line $\\Gamma$ and the line $AB$. We need to solve the system of equations:\n    $$\n    \\begin{cases}\n    x + y = 12 \\quad (\\text{Equation of } \\Gamma) \\\\\n    x - y = -1 \\quad (\\text{Equation of } AB)\n    \\end{cases}\n    $$\n    Adding the two equations: $(x + y) + (x - y) = 12 + (-1) \\implies 2x = 11 \\implies x = 5.5$.\n    Substitute $x = 5.5$ into the first equation: $5.5 + y = 12 \\implies y = 12 - 5.5 \\implies y = 6.5$.\n    So, the midpoint is $M(5.5, 6.5)$.</li>\n  <li>Calculate the coordinates of point $B$. Using the midpoint formula $M = \\left(\\frac{x_A + x_B}{2}, \\frac{y_A + y_B}{2}\\right)$, we know $M(5.5, 6.5)$ and $A(8, 9)$.\n    We can rearrange the formula to find $B$: $B = 2M - A$.\n    $$B = 2(5.5, 6.5) - (8, 9)$$\n    $$B = (2 \\times 5.5, 2 \\times 6.5) - (8, 9)$$\n    $$B = (11, 13) - (8, 9)$$\n    $$B = (11 - 8, 13 - 9)$$\n    $$B = (3, 4)$$</li>\n</ol><br>\n<strong>Conclusion:</strong><br>The coordinates of point $B$ are $(3, 4)$."
+          }
+        ]
+      }
+    ]
+  },
+  "page_13": {
+    "page": 13,
+    "questions": [
+      {
+        "q_number": "Q10",
+        "topic": "Algebraic manipulation",
+        "question_crop": [
+          0,
+          10
+        ],
+        "steps": [
+          {
+            "step_number": 1,
+            "crop": [
+              10,
+              25
+            ],
+            "is_correct": true,
+            "student_written_text": "3x + 2y = 4(x + y)\n3x + 2y = 4x + 4y",
+            "feedback": ""
+          },
+          {
+            "step_number": 2,
+            "crop": [
+              25,
+              40
+            ],
+            "is_correct": true,
+            "student_written_text": "-x = 2y\nx = -2y",
+            "feedback": ""
+          },
+          {
+            "step_number": 3,
+            "crop": [
+              40,
+              55
+            ],
+            "is_correct": true,
+            "student_written_text": "\\frac{8x + 8y}{3x + 3y} = \\frac{8(-2y) + 8y}{3(-2y) + 3y}",
+            "feedback": ""
+          },
+          {
+            "step_number": 4,
+            "crop": [
+              55,
+              75
+            ],
+            "is_correct": true,
+            "student_written_text": "= \\frac{-16y + 8y}{-6y + 3y} = \\frac{-8y}{-3y} = \\frac{8}{3}",
+            "feedback": "Excellent work! You correctly performed the algebraic substitution by finding $x = -2y$ and simplifying the expression to get the correct constant value of $8/3$."
+          }
+        ]
+      }
+    ]
+  }
+}
