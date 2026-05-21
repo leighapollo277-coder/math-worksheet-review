@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSE Circle Geometry Grader — AI-Powered HKDSE Answer Review</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- KaTeX for Beautiful Math Equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+        ]
+    });"></script>
+
+    <style>
+        :root {
+            --bg-base: #0b0f19;
+            --bg-surface: rgba(17, 24, 39, 0.7);
+            --bg-card-err: rgba(239, 68, 68, 0.05);
+            --bg-card-ok: rgba(16, 185, 129, 0.03);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --primary: #6366f1;
+            --success: #10b981;
+            --error: #ef4444;
+            --error-light: rgba(239, 68, 68, 0.15);
+            --success-light: rgba(16, 185, 129, 0.15);
+            --font-outfit: 'Outfit', sans-serif;
+            --font-inter: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: radial-gradient(circle at top right, #1e1b4b 0%, var(--bg-base) 60%);
+            color: var(--text-primary);
+            font-family: var(--font-inter);
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        /* App Layout */
+        .sidebar {
+            width: 340px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-header h1 {
+            font-family: var(--font-outfit);
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #a5b4fc, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sidebar-header p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .sidebar-menu {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.05);
+            transform: translateX(4px);
+        }
+
+        .sidebar-item-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .sidebar-q-num {
+            font-family: var(--font-outfit);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .sidebar-topic {
+            font-size: 11px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 220px;
+        }
+
+        .sidebar-badge {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .sidebar-success .sidebar-badge {
+            color: var(--success);
+        }
+
+        .sidebar-error .sidebar-badge {
+            color: var(--error);
+        }
+
+        .sidebar-error {
+            background: rgba(239, 68, 68, 0.03);
+            border-left: 3px solid var(--error);
+        }
+
+        .main-content {
+            margin-left: 340px;
+            flex-grow: 1;
+            padding: 40px 60px;
+            max-width: 1200px;
+            min-height: 100vh;
+        }
+
+        /* Dashboard Banner */
+        .dashboard-header {
+            margin-bottom: 40px;
+        }
+
+        .dashboard-title {
+            font-family: var(--font-outfit);
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--bg-surface);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+        }
+
+        .stat-value {
+            font-family: var(--font-outfit);
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .stat-card:nth-child(2) .stat-value {
+            color: var(--error);
+        }
+
+        .stat-card:nth-child(3) .stat-value {
+            color: var(--success);
+        }
+
+        /* Question Feed */
+        .page-section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: var(--font-outfit);
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--text-secondary);
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+        }
+
+        .glass-card {
+            background: var(--bg-surface);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(99, 102, 241, 0.25);
+            box-shadow: 0 20px 45px -12px rgba(0,0,0,0.6);
+        }
+
+        .error-card {
+            border-top: 4px solid var(--error);
+            background: linear-gradient(to bottom, var(--bg-card-err), var(--bg-surface));
+        }
+
+        .success-card {
+            border-top: 4px solid var(--success);
+            background: linear-gradient(to bottom, var(--bg-card-ok), var(--bg-surface));
+        }
+
+        .question-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .question-header h2 {
+            font-family: var(--font-outfit);
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .topic-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .page-badge {
+            font-size: 12px;
+            font-weight: 600;
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            padding: 4px 10px;
+            border-radius: 8px;
+        }
+
+        /* Images and Display */
+        .question-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 32px;
+            display: block;
+        }
+
+        .no-image {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .steps-section h3 {
+            font-family: var(--font-outfit);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .step-container {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .step-header h4 {
+            font-family: var(--font-outfit);
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .badge {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .success-badge {
+            background: var(--success-light);
+            color: #34d399;
+        }
+
+        .error-badge {
+            background: var(--error-light);
+            color: #f87171;
+        }
+
+        .step-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Feedback cards */
+        .feedback-card {
+            background: rgba(239, 68, 68, 0.06);
+            border: 1px solid rgba(239, 68, 68, 0.15);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .feedback-card.info-card {
+            background: rgba(59, 130, 246, 0.06);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+        }
+
+        .feedback-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #f87171;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .feedback-card.info-card .feedback-header {
+            color: #60a5fa;
+        }
+
+        .warning-icon, .info-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        .feedback-body {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #fca5a5;
+        }
+
+        .feedback-card.info-card .feedback-body {
+            color: #93c5fd;
+        }
+
+        /* Summary Card Styling */
+        .student-summary-card {
+            border-top: 4px solid var(--primary) !important;
+            background: linear-gradient(to bottom, rgba(99, 102, 241, 0.05), var(--bg-surface)) !important;
+        }
+
+        .summary-icon {
+            color: #818cf8;
+        }
+
+        .summary-content {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-top: 24px;
+        }
+
+        .summary-subtitle {
+            font-family: var(--font-outfit);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .text-error {
+            color: #f87171;
+        }
+
+        .text-success {
+            color: #34d399;
+        }
+
+        .summary-list {
+            list-style-type: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .summary-list > li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .summary-list > li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary);
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .summary-list ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .summary-list ul li {
+            position: relative;
+            padding-left: 16px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .summary-list ul li::before {
+            content: "└";
+            position: absolute;
+            left: 0;
+            top: -2px;
+            color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Responsive styling */
+        @media (max-width: 1024px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .sidebar-menu {
+                max-height: 240px;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 30px 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1>Math Review Grading</h1>
+            <p>Worksheet Question Layout & Analysis</p>
+        </div>
+        <div class="sidebar-menu">
+            
+            <a href="#page_01_Q8" class="sidebar-item sidebar-success">
+                <div class="sidebar-item-info">
+                    <span class="sidebar-q-num">Page 1 - Q8</span>
+                    <span class="sidebar-topic">Circle geometry and similar triangles</span>
+                </div>
+                <span class="sidebar-badge">✓</span>
+            </a>
+            
+
+            <a href="#page_02_Q13" class="sidebar-item sidebar-success">
+                <div class="sidebar-item-info">
+                    <span class="sidebar-q-num">Page 2 - Q13</span>
+                    <span class="sidebar-topic">Circle geometry and sector perimeter</span>
+                </div>
+                <span class="sidebar-badge">✓</span>
+            </a>
+            
+
+            <a href="#page_03_Q7" class="sidebar-item sidebar-success">
+                <div class="sidebar-item-info">
+                    <span class="sidebar-q-num">Page 3 - Q7</span>
+                    <span class="sidebar-topic">Circle geometry (angle properties)</span>
+                </div>
+                <span class="sidebar-badge">✓</span>
+            </a>
+            
+
+    <a href="#student-summary" class="sidebar-item sidebar-summary-link" style="margin-top: 16px; border-top: 1px solid var(--border-color); padding-top: 20px;">
+        <div class="sidebar-item-info">
+            <span class="sidebar-q-num" style="color: #a5b4fc;">📊 Diagnostics Summary</span>
+            <span class="sidebar-topic">Weaknesses & Focus Areas</span>
+        </div>
+        <span class="sidebar-badge" style="color: #a5b4fc;">★</span>
+    </a>
+    
+        </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="main-content">
+        <header class="dashboard-header">
+            <h1 class="dashboard-title">DSE Circle Geometry Grader</h1>
+            
+            <!-- Dashboard Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-label">Reviewed Problems</span>
+                    <span class="stat-value">3</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Revisions Needed</span>
+                    <span class="stat-value">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Concept Mastery</span>
+                    <span class="stat-value">100%</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dynamic Worksheet Reviews -->
+        
+        <section class="page-section">
+            <h2 class="section-title">Page 1 Worksheets</h2>
+            
+            <div id="page_01_Q8" class="question-card glass-card success-card">
+                <div class="question-header">
+                    <h2>Q8 <span class="topic-label">Circle geometry and similar triangles</span></h2>
+                    <span class="page-badge">Page 1</span>
+                </div>
+                <div class="question-content">
+                    <img src="images/page_01_Q8_question.png" alt="Question 8: A circle diagram (Figure 1) with chords AB, BC, CD, and AD intersecting at E. Given lengths are BE = 8 cm, CE = 20 cm, and DE = 15 cm. The question asks to (a) write down a pair of similar triangles and find AE, and (b) determine if AC and BD are perpendicular if AB = 10 cm." class="question-image">
+                    <div class="steps-section">
+                        <h3>Student Working Steps</h3>
+                        
+                <div class="step-container">
+                    <div class="step-header">
+                        <h4>Step 1</h4>
+                        <span class="badge success-badge">✓ Correct</span>
+                    </div>
+                    <div class="step-body">
+                        <img src="images/page_01_Q8_step_1.png" alt="The student provides a formal proof for the similarity of triangles ABE and DCE, using 'angles in the same segment' and 'vertically opposite angles' to establish AAA similarity." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Redundant Step. The question asks you to 'Write down' the similar triangles, which implies a formal proof is not required. In the HKDSE, you can simply state $\triangle ABE \sim \triangle DCE$ and move directly to the calculation to save time. Your geometric reasons are correct, though '(vert. opp. ∠s)' is the standard abbreviation.
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                <div class="step-container">
+                    <div class="step-header">
+                        <h4>Step 2</h4>
+                        <span class="badge success-badge">✓ Correct</span>
+                    </div>
+                    <div class="step-body">
+                        <img src="images/page_01_Q8_step_2.png" alt="The student uses the ratio of corresponding sides of the similar triangles: AE/DE = BE/CE. Substituting the values: AE/15 = 8/20, which simplifies to AE = 6 cm." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Correct. You have correctly identified the corresponding sides $\frac{AE}{DE} = \frac{BE}{CE}$ and solved for $AE$ accurately.
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                <div class="step-container">
+                    <div class="step-header">
+                        <h4>Step 3</h4>
+                        <span class="badge success-badge">✓ Correct</span>
+                    </div>
+                    <div class="step-body">
+                        <img src="images/page_01_Q8_step_3.png" alt="The student checks for perpendicularity using the converse of Pythagoras' Theorem. They calculate 6^2 + 8^2 = 10^2, show that 100 = 100, and conclude that angle BEA is 90 degrees." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Correct. Your explanation using the converse of Pythagoras' Theorem is logical. To ensure you receive full 'Reason Marks' in Section A of the HKDSE, you should explicitly write the reason: (converse of Pythagoras' Theorem). Also, conclude more formally: 'Since $\angle BEA = 90^\circ$, $AC \perp BD$ (or AC is perpendicular to BD)'.
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        
+
+        <section class="page-section">
+            <h2 class="section-title">Page 2 Worksheets</h2>
+            
+            <div id="page_02_Q13" class="question-card glass-card success-card">
+                <div class="question-header">
+                    <h2>Q13 <span class="topic-label">Circle geometry and sector perimeter</span></h2>
+                    <span class="page-badge">Page 2</span>
+                </div>
+                <div class="question-content">
+                    <img src="images/page_02_Q13_question.png" alt="The question shows Figure 1, a circle with points A, B, C, D, and E on the circumference. AC is a diameter and O is the centre. Lines BD and OC intersect at point F. It is given that angle AED = 115 degrees. Part (a) asks to find angle CBF. Part (b) states that if BC is parallel to OD and OB = 18 cm, determine if the perimeter of sector OBC is less than 60 cm and explain the answer." class="question-image">
+                    <div class="steps-section">
+                        <h3>Student Working Steps</h3>
+                        
+                <div class="step-container">
+                    <div class="step-header">
+                        <h4>Step 1</h4>
+                        <span class="badge success-badge">✓ Correct</span>
+                    </div>
+                    <div class="step-body">
+                        <img src="images/page_02_Q13_step_1.png" alt="The student starts part (a) by adding a line AB. They write that angle ABF + 115 degrees = 180 degrees, finding angle ABF = 65 degrees. They then use the property of an angle in a semi-circle to state 90 degrees - angle ABF = angle CBF, concluding that angle CBF = 25 degrees." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Correct calculation. To improve your score in the HKDSE, you must provide geometric reasons for each step: for $\angle ABF + 115^\circ = 180^\circ$, use `(opp. ∠s, cyclic quad.)`; for $\angle ABC = 90^\circ$, use `(∠ in semi-circle)`.
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                <div class="step-container">
+                    <div class="step-header">
+                        <h4>Step 2</h4>
+                        <span class="badge success-badge">✓ Correct</span>
+                    </div>
+                    <div class="step-body">
+                        <img src="images/page_02_Q13_step_2.png" alt="For part (b), the student finds angle COD = 2 * 25 = 50 degrees. They identify angle OCB = angle COD as alternate angles. They then state that angle OBC = angle OCB because OB = OC = 18 cm (isosceles triangle). Finally, they calculate angle BOC = 180 - 50 * 2 = 80 degrees." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Correct identification of the central angle $\angle BOC = 80^\circ$. Ensure you include all necessary reasons: `(∠ at centre twice ∠ at circumference)`, `(alt. ∠s, BC // OD)`, and `(base ∠s, isos. Δ)`.
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                <div class="step-container">
+                    <div class="step-header">
+                        <h4>Step 3</h4>
+                        <span class="badge success-badge">✓ Correct</span>
+                    </div>
+                    <div class="step-body">
+                        <img src="images/page_02_Q13_step_3.png" alt="The student calculates the arc length BC as 2 * pi * 18 * (80/360) = 25.13 cm. They then find the perimeter of sector OBC by adding two radii and the arc length: (18 * 2) + 25.13 = 61.13 cm. They conclude that since 61.13 > 60 cm, the answer is 'No'." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Your calculation of the arc length and the total perimeter of the sector is correct. The conclusion that the perimeter is not less than 60 cm is also accurate. Well done.
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        
+
+        <section class="page-section">
+            <h2 class="section-title">Page 3 Worksheets</h2>
+            
+            <div id="page_03_Q7" class="question-card glass-card success-card">
+                <div class="question-header">
+                    <h2>Q7 <span class="topic-label">Circle geometry (angle properties)</span></h2>
+                    <span class="page-badge">Page 3</span>
+                </div>
+                <div class="question-content">
+                    <img src="images/page_03_Q7_question.png" alt="Diagram of a circle with a diameter PR and points P, Q, R, S on the circumference. Lines PR and QS intersect at T. It is given that ∠PSQ = 41° and ∠PTQ = 68°. The question asks to find ∠RQS and ∠PQS." class="question-image">
+                    <div class="steps-section">
+                        <h3>Student Working Steps</h3>
+                        
+                <div class="step-container">
+                    <div class="step-header">
+                        <h4>Step 1</h4>
+                        <span class="badge success-badge">✓ Correct</span>
+                    </div>
+                    <div class="step-body">
+                        <img src="images/page_03_Q7_step_1.png" alt="The student identifies angle PSR as 90 degrees (angle in semi-circle) and calculates angle RSQ as 49 degrees by subtracting 41 degrees from 90 degrees." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Correct. Since $PR$ is a diameter, $\angle PSR = 90^\circ$. You must explicitly state the geometric reason $(\angle \text{ in semi-circle})$ to earn 'Reason Marks'. Note: 'Add a line RS' is a Redundant Step here because $\angle PSR = 90^\circ$ is a direct property of the diameter $PR$ without needing construction.
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                <div class="step-container">
+                    <div class="step-header">
+                        <h4>Step 2</h4>
+                        <span class="badge success-badge">✓ Correct</span>
+                    </div>
+                    <div class="step-body">
+                        <img src="images/page_03_Q7_step_2.png" alt="The student calculates angle RTQ as 112 degrees by subtracting 68 degrees from 180 degrees (angles on a straight line)." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Correct. $\angle RTQ = 180^\circ - 68^\circ = 112^\circ$. Remember to include the reason $(\text{adj. } \angle\text{s on st. line})$.
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                <div class="step-container">
+                    <div class="step-header">
+                        <h4>Step 3</h4>
+                        <span class="badge success-badge">✓ Correct</span>
+                    </div>
+                    <div class="step-body">
+                        <img src="images/page_03_Q7_step_3.png" alt="The student identifies angle QRP = angle PSQ = 41 degrees (angles in the same segment) and then uses triangle RQT to find angle RQS = 180 - 112 - 41 = 27 degrees." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Correct. You correctly used $(\angle\text{s in same segment})$ for $\angle QRP = 41^\circ$ and $(\angle \text{ sum of } \triangle)$ for the triangle $\triangle RQT$. Ensure these abbreviations are used.
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                <div class="step-container">
+                    <div class="step-header">
+                        <h4>Step 4</h4>
+                        <span class="badge success-badge">✓ Correct</span>
+                    </div>
+                    <div class="step-body">
+                        <img src="images/page_03_Q7_step_4.png" alt="The student sums the angles (49 + 41 + 27 + ∠PQS) to 180 degrees (opposite angles of a cyclic quadrilateral) to solve for angle PQS." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Your logic $49^\circ + 41^\circ + 27^\circ + \angle PQS = 180^\circ$ is correct and can earn full marks if you add the reason $(\text{opp. } \angle\text{s, cyclic quad.})$. Alt. Solution (Shortcut): Since $PR$ is a diameter, $\angle PQR = 90^\circ$ $(\angle \text{ in semi-circle})$. Thus $\angle PQS + 27^\circ = 90^\circ \implies \angle PQS = 63^\circ$.
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        
+
+    <section class="page-section" id="student-summary">
+        <h2 class="section-title">HKDSE Performance Diagnostics</h2>
+        <div class="question-card glass-card student-summary-card">
+            <div class="question-header">
+                <h2>
+                    <svg class="summary-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    Student Performance Diagnostics & Revision Guide
+                </h2>
+                <span class="page-badge">HKDSE Compulsory Part</span>
+            </div>
+            
+            <div class="summary-content">
+                <div class="summary-section">
+                    <h3 class="summary-subtitle text-error">⚠️ Identified Weaknesses</h3>
+                    <ul class="summary-list">
+                        <li><strong>Frequent Omission of Geometric Reasons:</strong> The candidate understands circle geometry theorems and carries out calculations correctly, but consistently omits the geometric reasons in parentheses. In the HKDSE exam, this leads to a direct loss of "Reason Marks" (typically 1 mark per reason in Section A). Specific instances:
+                            <ul>
+                                <li>Page 1 (Q8b): Proved chords perpendicular using Pythagoras' theorem but omitted the reason <code>(converse of Pythagoras' Theorem)</code>.</li>
+                                <li>Page 2 (Q13a &amp; b): Applied <code>(opp. ∠s, cyclic quad.)</code>, <code>(∠ in semi-circle)</code>, and <code>(∠ at centre twice ∠ at circum.)</code> without writing down any justifications.</li>
+                                <li>Page 3 (Q7): Set up the cyclic quadrilateral equation without stating <code>(opp. ∠s, cyclic quad.)</code>.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Redundant Working Steps:</strong> The student spends valuable exam time writing down complete multi-line similarity proofs (e.g. Page 1, Q8a proving similarity by AAA) when the question command is only "Write down", which only requires stating the similarity statement itself (e.g., $\triangle ABE \sim \triangle DCE$) without proof.</li>
+                        <li><strong>Notation Ambiguity (Chord vs. Arc):</strong> In Page 2 (Q13b), the candidate uses the notation $BC$ to refer to the arc length when calculating the sector perimeter. In standard HKDSE notation, $BC$ represents the straight-line chord length, whereas the arc should be denoted as $\overset{\frown}{BC}$ or "arc BC". This ambiguity could lead to marks deduction.</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-section">
+                    <h3 class="summary-subtitle text-success">🎯 Revision Topics & Focusing Areas</h3>
+                    <ul class="summary-list">
+                        <li><strong>HKEAA Standard Geometric Reasons:</strong>
+                            <ul>
+                                <li>Thoroughly revise and memorize the list of HKEAA-approved geometric reasons and their official abbreviations (e.g. <code>(opp. ∠s, cyclic quad.)</code>, <code>(∠ in semi-circle)</code>, <code>(converse of Pythagoras' Theorem)</code>, <code>(angles in same segment)</code>, <code>(alt. ∠s, BC // OD)</code>).</li>
+                                <li>Establish a habit of writing a matching reason in parentheses immediately after every geometric statement.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Exam Command Verb Recognition:</strong>
+                            <ul>
+                                <li>Understand what HKEAA command verbs imply to manage time effectively: <strong>"Write down"</strong> means state the answer directly with 0 steps; <strong>"Find / Calculate"</strong> requires calculation working; <strong>"Explain / Prove"</strong> requires full working alongside geometric reasons.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Formal Geometric Notation:</strong>
+                            <ul>
+                                <li>Differentiate chord lengths from arc lengths using standard notation ($\overset{\frown}{BC}$ or $\text{arc } BC$) and ensure triangles are named in the correct order of corresponding vertices (e.g., $\triangle ABE \sim \triangle DCE$).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    </main>
+
+</body>
+</html>
