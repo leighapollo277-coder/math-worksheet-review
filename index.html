@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Math Review Portal</title>
+    <title>DSE Circle Geometry Grader — AI-Powered HKDSE Answer Review</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -378,6 +378,11 @@
             gap: 12px;
         }
 
+        .feedback-card.info-card {
+            background: rgba(59, 130, 246, 0.06);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+        }
+
         .feedback-header {
             display: flex;
             align-items: center;
@@ -387,7 +392,11 @@
             font-size: 13px;
         }
 
-        .warning-icon {
+        .feedback-card.info-card .feedback-header {
+            color: #60a5fa;
+        }
+
+        .warning-icon, .info-icon {
             width: 16px;
             height: 16px;
         }
@@ -396,6 +405,95 @@
             font-size: 13px;
             line-height: 1.6;
             color: #fca5a5;
+        }
+
+        .feedback-card.info-card .feedback-body {
+            color: #93c5fd;
+        }
+
+        /* Summary Card Styling */
+        .student-summary-card {
+            border-top: 4px solid var(--primary) !important;
+            background: linear-gradient(to bottom, rgba(99, 102, 241, 0.05), var(--bg-surface)) !important;
+        }
+
+        .summary-icon {
+            color: #818cf8;
+        }
+
+        .summary-content {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-top: 24px;
+        }
+
+        .summary-subtitle {
+            font-family: var(--font-outfit);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .text-error {
+            color: #f87171;
+        }
+
+        .text-success {
+            color: #34d399;
+        }
+
+        .summary-list {
+            list-style-type: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .summary-list > li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .summary-list > li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary);
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .summary-list ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .summary-list ul li {
+            position: relative;
+            padding-left: 16px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .summary-list ul li::before {
+            content: "└";
+            position: absolute;
+            left: 0;
+            top: -2px;
+            color: rgba(255, 255, 255, 0.15);
         }
 
         /* Responsive styling */
@@ -437,206 +535,62 @@
         </div>
         <div class="sidebar-menu">
             
-            <a href="#page_01_Q3" class="sidebar-item sidebar-error">
+            <a href="#page_01_Q8" class="sidebar-item sidebar-success">
                 <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 1 - Q3</span>
-                    <span class="sidebar-topic">Rectangle area increase</span>
-                </div>
-                <span class="sidebar-badge">⚠️</span>
-            </a>
-            
-
-            <a href="#page_01_Q4" class="sidebar-item sidebar-error">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 1 - Q4</span>
-                    <span class="sidebar-topic">Hemisphere surface area and volume</span>
-                </div>
-                <span class="sidebar-badge">⚠️</span>
-            </a>
-            
-
-            <a href="#page_01_Q5" class="sidebar-item sidebar-error">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 1 - Q5</span>
-                    <span class="sidebar-topic">Melting hemisphere into cones</span>
-                </div>
-                <span class="sidebar-badge">⚠️</span>
-            </a>
-            
-
-            <a href="#page_01_Q6" class="sidebar-item sidebar-error">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 1 - Q6</span>
-                    <span class="sidebar-topic">Cone curved surface area ratio</span>
-                </div>
-                <span class="sidebar-badge">⚠️</span>
-            </a>
-            
-
-            <a href="#page_01_Q7" class="sidebar-item sidebar-success">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 1 - Q7</span>
-                    <span class="sidebar-topic">Parallelogram area</span>
+                    <span class="sidebar-q-num">Page 1 - Q8</span>
+                    <span class="sidebar-topic">Circle geometry and similar triangles</span>
                 </div>
                 <span class="sidebar-badge">✓</span>
             </a>
             
 
-            <a href="#page_02_Q7" class="sidebar-item sidebar-success">
+            <a href="#page_02_Q13" class="sidebar-item sidebar-success">
                 <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 2 - Q7</span>
-                    <span class="sidebar-topic">Partial Variation and Functions</span>
+                    <span class="sidebar-q-num">Page 2 - Q13</span>
+                    <span class="sidebar-topic">Circle geometry and sector perimeter</span>
                 </div>
                 <span class="sidebar-badge">✓</span>
             </a>
             
 
-            <a href="#page_03_Q6" class="sidebar-item sidebar-error">
+            <a href="#page_03_Q7" class="sidebar-item sidebar-success">
                 <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 3 - Q6</span>
-                    <span class="sidebar-topic">Polynomials: Remainder and Factor Theorems</span>
-                </div>
-                <span class="sidebar-badge">⚠️</span>
-            </a>
-            
-
-            <a href="#page_04_Q8" class="sidebar-item sidebar-success">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 4 - Q8</span>
-                    <span class="sidebar-topic">Quadratic functions and coordinate geometry</span>
+                    <span class="sidebar-q-num">Page 3 - Q7</span>
+                    <span class="sidebar-topic">Circle geometry (angle properties)</span>
                 </div>
                 <span class="sidebar-badge">✓</span>
             </a>
             
 
-            <a href="#page_05_Q3" class="sidebar-item sidebar-success">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 5 - Q3</span>
-                    <span class="sidebar-topic">Trigonometric graph parameters</span>
-                </div>
-                <span class="sidebar-badge">✓</span>
-            </a>
-            
-
-            <a href="#page_05_Q4" class="sidebar-item sidebar-error">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 5 - Q4</span>
-                    <span class="sidebar-topic">Quadratic functions and roots</span>
-                </div>
-                <span class="sidebar-badge">⚠️</span>
-            </a>
-            
-
-            <a href="#page_05_Q5" class="sidebar-item sidebar-error">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 5 - Q5</span>
-                    <span class="sidebar-topic">Quadratic graph transformations</span>
-                </div>
-                <span class="sidebar-badge">⚠️</span>
-            </a>
-            
-
-            <a href="#page_06_Q6" class="sidebar-item sidebar-error">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 6 - Q6</span>
-                    <span class="sidebar-topic">Solving equations using graphs</span>
-                </div>
-                <span class="sidebar-badge">⚠️</span>
-            </a>
-            
-
-            <a href="#page_06_Q7" class="sidebar-item sidebar-error">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 6 - Q7</span>
-                    <span class="sidebar-topic">Trigonometric graph parameters</span>
-                </div>
-                <span class="sidebar-badge">⚠️</span>
-            </a>
-            
-
-            <a href="#page_07_Q9" class="sidebar-item sidebar-error">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 7 - Q9</span>
-                    <span class="sidebar-topic">Quadratic vertex and transformations</span>
-                </div>
-                <span class="sidebar-badge">⚠️</span>
-            </a>
-            
-
-            <a href="#page_08_Q5" class="sidebar-item sidebar-error">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 8 - Q5</span>
-                    <span class="sidebar-topic">Quadratic functions and properties</span>
-                </div>
-                <span class="sidebar-badge">⚠️</span>
-            </a>
-            
-
-            <a href="#page_09_Q7" class="sidebar-item sidebar-error">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 9 - Q7</span>
-                    <span class="sidebar-topic">Polynomials: Long Division and Factor Theorem</span>
-                </div>
-                <span class="sidebar-badge">⚠️</span>
-            </a>
-            
-
-            <a href="#page_10_Q12" class="sidebar-item sidebar-error">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 10 - Q12</span>
-                    <span class="sidebar-topic">Quadratic functions and coordinate geometry of triangles</span>
-                </div>
-                <span class="sidebar-badge">⚠️</span>
-            </a>
-            
-
-            <a href="#page_11_Q8" class="sidebar-item sidebar-error">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 11 - Q8</span>
-                    <span class="sidebar-topic">Locus of a point (Circle)</span>
-                </div>
-                <span class="sidebar-badge">⚠️</span>
-            </a>
-            
-
-            <a href="#page_12_Q8" class="sidebar-item sidebar-error">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 12 - Q8</span>
-                    <span class="sidebar-topic">Locus and Coordinate Geometry</span>
-                </div>
-                <span class="sidebar-badge">⚠️</span>
-            </a>
-            
-
-            <a href="#page_13_Q10" class="sidebar-item sidebar-success">
-                <div class="sidebar-item-info">
-                    <span class="sidebar-q-num">Page 13 - Q10</span>
-                    <span class="sidebar-topic">Algebraic manipulation</span>
-                </div>
-                <span class="sidebar-badge">✓</span>
-            </a>
-            
+    <a href="#student-summary" class="sidebar-item sidebar-summary-link" style="margin-top: 16px; border-top: 1px solid var(--border-color); padding-top: 20px;">
+        <div class="sidebar-item-info">
+            <span class="sidebar-q-num" style="color: #a5b4fc;">📊 Diagnostics Summary</span>
+            <span class="sidebar-topic">Weaknesses & Focus Areas</span>
+        </div>
+        <span class="sidebar-badge" style="color: #a5b4fc;">★</span>
+    </a>
+    
         </div>
     </aside>
 
     <!-- Main Workspace -->
     <main class="main-content">
         <header class="dashboard-header">
-            <h1 class="dashboard-title">Homework Performance Dashboard</h1>
+            <h1 class="dashboard-title">DSE Circle Geometry Grader</h1>
             
             <!-- Dashboard Stats -->
             <div class="stats-grid">
                 <div class="stat-card">
                     <span class="stat-label">Reviewed Problems</span>
-                    <span class="stat-value">20</span>
+                    <span class="stat-value">3</span>
                 </div>
                 <div class="stat-card">
                     <span class="stat-label">Revisions Needed</span>
-                    <span class="stat-value">17</span>
+                    <span class="stat-value">0</span>
                 </div>
                 <div class="stat-card">
                     <span class="stat-label">Concept Mastery</span>
-                    <span class="stat-value">15%</span>
+                    <span class="stat-value">100%</span>
                 </div>
             </div>
         </header>
@@ -646,168 +600,13 @@
         <section class="page-section">
             <h2 class="section-title">Page 1 Worksheets</h2>
             
-            <div id="page_01_Q3" class="question-card glass-card error-card">
+            <div id="page_01_Q8" class="question-card glass-card success-card">
                 <div class="question-header">
-                    <h2>Q3 <span class="topic-label">Rectangle area increase</span></h2>
+                    <h2>Q8 <span class="topic-label">Circle geometry and similar triangles</span></h2>
                     <span class="page-badge">Page 1</span>
                 </div>
                 <div class="question-content">
-                    <img src="images/page_01_Q3_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_01_Q3_step_1.png" alt="Step 1 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
-                        </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student incorrectly selected $20$. This indicates a misunderstanding of the algebraic manipulation required to solve for $x$.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li>Set up the equation representing the relationship between the dimensions and area: $1.2 \times (1 + \frac{x}{100}) = 1.5$.</li>
-  <li>Divide both sides by $1.2$: $1 + \frac{x}{100} = \frac{1.5}{1.2}$.</li>
-  <li>Simplify the right side: $1 + \frac{x}{100} = 1.25$.</li>
-  <li>Subtract $1$ from both sides: $\frac{x}{100} = 1.25 - 1$.</li>
-  <li>Simplify: $\frac{x}{100} = 0.25$.</li>
-  <li>Multiply both sides by $100$ to solve for $x$: $x = 0.25 \times 100$.</li>
-  <li>Calculate the final value of $x$: $x = 25$.</li>
-</ol><br>
-<strong>Conclusion:</strong><br>The correct answer is B, which corresponds to $x = 25$.
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                
-                    </div>
-                </div>
-            </div>
-            
-
-            <div id="page_01_Q4" class="question-card glass-card error-card">
-                <div class="question-header">
-                    <h2>Q4 <span class="topic-label">Hemisphere surface area and volume</span></h2>
-                    <span class="page-badge">Page 1</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_01_Q4_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_01_Q4_step_1.png" alt="Step 1 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
-                        </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student's chosen answer, B, was incorrect. The correct solution, detailed below, shows that the difference in volumes between the two solid hemispheres is $342\pi \text{ cm}^3$, which corresponds to option A. The error likely occurred in the calculation of the constant $k$, the radii, or the final volume difference.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li>Recall that the surface area of a solid hemisphere is given by the formula $A = 3\pi r^2$, which includes the curved surface area ($2\pi r^2$) and the area of the flat circular base ($\pi r^2$).</li>
-  <li>Given the radii of the two solid hemispheres are $2k$ and $3k$, and their combined surface area is $351\pi$. Set up the equation for the sum of their surface areas:
-    $$3\pi (2k)^2 + 3\pi (3k)^2 = 351\pi$$</li>
-  <li>Simplify and solve for $k$:
-    $$3\pi (4k^2) + 3\pi (9k^2) = 351\pi$$
-    $$12\pi k^2 + 27\pi k^2 = 351\pi$$
-    $$39\pi k^2 = 351\pi$$
-    Divide both sides by $39\pi$:
-    $$k^2 = \frac{351}{39}$$
-    $$k^2 = 9$$
-    $$k = 3 \quad (\text{since radius must be positive})$$</li>
-  <li>Calculate the actual radii of the two hemispheres using the value of $k$:
-    $$r_1 = 2k = 2(3) = 6 \text{ cm}$$
-    $$r_2 = 3k = 3(3) = 9 \text{ cm}$$</li>
-  <li>Recall that the volume of a hemisphere is given by the formula $V = \frac{2}{3}\pi r^3$.</li>
-  <li>Calculate the difference in volumes between the larger and smaller hemispheres:
-    $$\text{Difference in Volumes} = \frac{2}{3}\pi r_2^3 - \frac{2}{3}\pi r_1^3$$
-    $$\text{Difference in Volumes} = \frac{2}{3}\pi (9^3 - 6^3)$$
-    $$\text{Difference in Volumes} = \frac{2}{3}\pi (729 - 216)$$
-    $$\text{Difference in Volumes} = \frac{2}{3}\pi (513)$$
-    $$\text{Difference in Volumes} = 2 \times 171\pi$$
-    $$\text{Difference in Volumes} = 342\pi \text{ cm}^3$$</li>
-</ol><br>
-<strong>Conclusion:</strong><br>The difference in volumes of the two solid hemispheres is $342\pi \text{ cm}^3$.
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                
-                    </div>
-                </div>
-            </div>
-            
-
-            <div id="page_01_Q5" class="question-card glass-card error-card">
-                <div class="question-header">
-                    <h2>Q5 <span class="topic-label">Melting hemisphere into cones</span></h2>
-                    <span class="page-badge">Page 1</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_01_Q5_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_01_Q5_step_1.png" alt="Step 1 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
-                        </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student selected $4:3$, which is incorrect.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li>First, we need to equate the volume of the hemisphere to the total volume of the three cones.</li>
-  <li>The formula for the volume of a hemisphere is $V_{hemisphere} = \frac{2}{3}\pi r^3$.</li>
-  <li>The formula for the volume of a single cone is $V_{cone} = \frac{1}{3}\pi r^2 h$. Therefore, the total volume of three cones is $V_{3cones} = 3 \times (\frac{1}{3}\pi r^2 h) = \pi r^2 h$.</li>
-  <li>Equating the two volumes gives us the equation: $\frac{2}{3}\pi r^3 = \pi r^2 h$.</li>
-  <li>To simplify the equation, we can divide both sides by $\pi r^2$ (assuming $r \neq 0$): $\frac{2}{3}r = h$.</li>
-  <li>To find the ratio $r:h$, we rearrange the equation: $\frac{r}{h} = \frac{3}{2}$. Thus, the ratio $r:h$ is $3:2$.</li>
-</ol><br>
-<strong>Conclusion:</strong><br>The correct ratio is $3:2$. The correct answer choice is C.
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                
-                    </div>
-                </div>
-            </div>
-            
-
-            <div id="page_01_Q6" class="question-card glass-card error-card">
-                <div class="question-header">
-                    <h2>Q6 <span class="topic-label">Cone curved surface area ratio</span></h2>
-                    <span class="page-badge">Page 1</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_01_Q6_question.png" alt="Question text" class="question-image">
+                    <img src="images/page_01_Q8_question.png" alt="Question 8: A circle diagram (Figure 1) with chords AB, BC, CD, and AD intersecting at E. Given lengths are BE = 8 cm, CE = 20 cm, and DE = 15 cm. The question asks to (a) write down a pair of similar triangles and find AE, and (b) determine if AC and BD are perpendicular if AB = 10 cm." class="question-image">
                     <div class="steps-section">
                         <h3>Student Working Steps</h3>
                         
@@ -817,7 +616,17 @@
                         <span class="badge success-badge">✓ Correct</span>
                     </div>
                     <div class="step-body">
-                        <img src="images/page_01_Q6_step_1.png" alt="Step 1 solution" class="step-image">
+                        <img src="images/page_01_Q8_step_1.png" alt="The student provides a formal proof for the similarity of triangles ABE and DCE, using 'angles in the same segment' and 'vertically opposite angles' to establish AAA similarity." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Redundant Step. The question asks you to 'Write down' the similar triangles, which implies a formal proof is not required. In the HKDSE, you can simply state $\triangle ABE \sim \triangle DCE$ and move directly to the calculation to save time. Your geometric reasons are correct, though '(vert. opp. ∠s)' is the standard abbreviation.
+                            </div>
+                        </div>
                         
                     </div>
                 </div>
@@ -826,58 +635,42 @@
                 <div class="step-container">
                     <div class="step-header">
                         <h4>Step 2</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_01_Q6_step_2.png" alt="Step 2 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
-                        </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student correctly identified the ratio of slant heights as $4/7$, which implies a ratio of areas of $16:49$ for the smaller cone to the whole cone. However, the error lies in interpreting the ratio for $X:Y$. The student incorrectly provided the ratio of the area of the smaller cone ($X$) to the area of the *whole* cone ($16:49$), instead of the ratio of the area of the smaller cone ($X$) to the area of the frustum ($Y$). The area of the frustum ($Y$) is the difference between the area of the whole cone and the area of the smaller cone.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li>Let $l_1$ be the slant height of the smaller cone and $l_2$ be the slant height of the whole cone. The given ratio of slant heights is $\frac{l_1}{l_2} = \frac{4}{7}$.</li>
-  <li>For similar figures, the ratio of their surface areas (or base areas, depending on context, but the $16:49$ implies total surface area or a related area measure) is the square of the ratio of their corresponding linear dimensions. Let $A_1$ be the area of the smaller cone and $A_2$ be the area of the whole cone. Then, $\frac{A_1}{A_2} = \left(\frac{l_1}{l_2}\right)^2$.</li>
-  <li>Substitute the given ratio of slant heights: $\frac{A_1}{A_2} = \left(\frac{4}{7}\right)^2 = \frac{16}{49}$. This means that if $A_1 = 16k$ for some constant $k$, then $A_2 = 49k$.</li>
-  <li>The problem defines $X$ as the area of the smaller cone, so $X = A_1 = 16k$.</li>
-  <li>The problem defines $Y$ as the area of the frustum. The frustum is the part of the whole cone remaining after the smaller cone is removed. Therefore, the area of the frustum $Y$ is the area of the whole cone minus the area of the smaller cone: $Y = A_2 - A_1$.</li>
-  <li>Substitute the expressions for $A_1$ and $A_2$ in terms of $k$: $Y = 49k - 16k = 33k$.</li>
-  <li>Now, find the ratio of $X$ to $Y$: $\frac{X}{Y} = \frac{16k}{33k}$.</li>
-  <li>Simplify the ratio by canceling $k$: $\frac{X}{Y} = \frac{16}{33}$.</li>
-</ol><br>
-<strong>Conclusion:</strong><br>The correct ratio $X:Y$ is $16:33$. The correct answer is B.
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                
-                    </div>
-                </div>
-            </div>
-            
-
-            <div id="page_01_Q7" class="question-card glass-card success-card">
-                <div class="question-header">
-                    <h2>Q7 <span class="topic-label">Parallelogram area</span></h2>
-                    <span class="page-badge">Page 1</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_01_Q7_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
                         <span class="badge success-badge">✓ Correct</span>
                     </div>
                     <div class="step-body">
-                        <img src="images/page_01_Q7_step_1.png" alt="Step 1 solution" class="step-image">
+                        <img src="images/page_01_Q8_step_2.png" alt="The student uses the ratio of corresponding sides of the similar triangles: AE/DE = BE/CE. Substituting the values: AE/15 = 8/20, which simplifies to AE = 6 cm." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Correct. You have correctly identified the corresponding sides $\frac{AE}{DE} = \frac{BE}{CE}$ and solved for $AE$ accurately.
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+                <div class="step-container">
+                    <div class="step-header">
+                        <h4>Step 3</h4>
+                        <span class="badge success-badge">✓ Correct</span>
+                    </div>
+                    <div class="step-body">
+                        <img src="images/page_01_Q8_step_3.png" alt="The student checks for perpendicularity using the converse of Pythagoras' Theorem. They calculate 6^2 + 8^2 = 10^2, show that 100 = 100, and conclude that angle BEA is 90 degrees." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Correct. Your explanation using the converse of Pythagoras' Theorem is logical. To ensure you receive full 'Reason Marks' in Section A of the HKDSE, you should explicitly write the reason: (converse of Pythagoras' Theorem). Also, conclude more formally: 'Since $\angle BEA = 90^\circ$, $AC \perp BD$ (or AC is perpendicular to BD)'.
+                            </div>
+                        </div>
                         
                     </div>
                 </div>
@@ -892,13 +685,13 @@
         <section class="page-section">
             <h2 class="section-title">Page 2 Worksheets</h2>
             
-            <div id="page_02_Q7" class="question-card glass-card success-card">
+            <div id="page_02_Q13" class="question-card glass-card success-card">
                 <div class="question-header">
-                    <h2>Q7 <span class="topic-label">Partial Variation and Functions</span></h2>
+                    <h2>Q13 <span class="topic-label">Circle geometry and sector perimeter</span></h2>
                     <span class="page-badge">Page 2</span>
                 </div>
                 <div class="question-content">
-                    <img src="images/page_02_Q7_question.png" alt="Question text" class="question-image">
+                    <img src="images/page_02_Q13_question.png" alt="The question shows Figure 1, a circle with points A, B, C, D, and E on the circumference. AC is a diameter and O is the centre. Lines BD and OC intersect at point F. It is given that angle AED = 115 degrees. Part (a) asks to find angle CBF. Part (b) states that if BC is parallel to OD and OB = 18 cm, determine if the perimeter of sector OBC is less than 60 cm and explain the answer." class="question-image">
                     <div class="steps-section">
                         <h3>Student Working Steps</h3>
                         
@@ -908,7 +701,17 @@
                         <span class="badge success-badge">✓ Correct</span>
                     </div>
                     <div class="step-body">
-                        <img src="images/page_02_Q7_step_1.png" alt="Step 1 solution" class="step-image">
+                        <img src="images/page_02_Q13_step_1.png" alt="The student starts part (a) by adding a line AB. They write that angle ABF + 115 degrees = 180 degrees, finding angle ABF = 65 degrees. They then use the property of an angle in a semi-circle to state 90 degrees - angle ABF = angle CBF, concluding that angle CBF = 25 degrees." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Correct calculation. To improve your score in the HKDSE, you must provide geometric reasons for each step: for $\angle ABF + 115^\circ = 180^\circ$, use `(opp. ∠s, cyclic quad.)`; for $\angle ABC = 90^\circ$, use `(∠ in semi-circle)`.
+                            </div>
+                        </div>
                         
                     </div>
                 </div>
@@ -920,7 +723,17 @@
                         <span class="badge success-badge">✓ Correct</span>
                     </div>
                     <div class="step-body">
-                        <img src="images/page_02_Q7_step_2.png" alt="Step 2 solution" class="step-image">
+                        <img src="images/page_02_Q13_step_2.png" alt="For part (b), the student finds angle COD = 2 * 25 = 50 degrees. They identify angle OCB = angle COD as alternate angles. They then state that angle OBC = angle OCB because OB = OC = 18 cm (isosceles triangle). Finally, they calculate angle BOC = 180 - 50 * 2 = 80 degrees." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Correct identification of the central angle $\angle BOC = 80^\circ$. Ensure you include all necessary reasons: `(∠ at centre twice ∠ at circumference)`, `(alt. ∠s, BC // OD)`, and `(base ∠s, isos. Δ)`.
+                            </div>
+                        </div>
                         
                     </div>
                 </div>
@@ -932,55 +745,17 @@
                         <span class="badge success-badge">✓ Correct</span>
                     </div>
                     <div class="step-body">
-                        <img src="images/page_02_Q7_step_3.png" alt="Step 3 solution" class="step-image">
+                        <img src="images/page_02_Q13_step_3.png" alt="The student calculates the arc length BC as 2 * pi * 18 * (80/360) = 25.13 cm. They then find the perimeter of sector OBC by adding two radii and the arc length: (18 * 2) + 25.13 = 61.13 cm. They conclude that since 61.13 > 60 cm, the answer is 'No'." class="step-image">
                         
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 4</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_02_Q7_step_4.png" alt="Step 4 solution" class="step-image">
-                        
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 5</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_02_Q7_step_5.png" alt="Step 5 solution" class="step-image">
-                        
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 6</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_02_Q7_step_6.png" alt="Step 6 solution" class="step-image">
-                        
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 7</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_02_Q7_step_7.png" alt="Step 7 solution" class="step-image">
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Your calculation of the arc length and the total perimeter of the sector is correct. The conclusion that the perimeter is not less than 60 cm is also accurate. Well done.
+                            </div>
+                        </div>
                         
                     </div>
                 </div>
@@ -995,111 +770,13 @@
         <section class="page-section">
             <h2 class="section-title">Page 3 Worksheets</h2>
             
-            <div id="page_03_Q6" class="question-card glass-card error-card">
+            <div id="page_03_Q7" class="question-card glass-card success-card">
                 <div class="question-header">
-                    <h2>Q6 <span class="topic-label">Polynomials: Remainder and Factor Theorems</span></h2>
+                    <h2>Q7 <span class="topic-label">Circle geometry (angle properties)</span></h2>
                     <span class="page-badge">Page 3</span>
                 </div>
                 <div class="question-content">
-                    <img src="images/page_03_Q6_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_03_Q6_step_1.png" alt="Step 1 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
-                        </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student incorrectly identified the value to substitute into the polynomial. The student wrote $-\frac{1}{x}$, which indicates a misunderstanding of how to apply the Remainder Theorem or the formula $f(-\frac{b}{a})$ shown in the reference box. The Remainder Theorem states that for a divisor $x-c$, the value to substitute is $c$.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li>According to the Remainder Theorem, when a polynomial $p(x)$ is divided by a linear factor $x-c$, the remainder is given by $p(c)$.</li>
-  <li>In this problem, the divisor is $x-1$. To find the value $c$ to substitute, we set the divisor equal to zero: $x-1 = 0$.</li>
-  <li>Solving for $x$, we find $x = 1$. This is the value that should be substituted into the polynomial $p(x)$.</li>
-  <li>Therefore, to find the remainder when $p(x)$ is divided by $x-1$, we must evaluate $p(1)$.</li>
-</ol><br>
-<strong>Conclusion:</strong><br>The correct first step is to evaluate $p(1)$, which yields $p(1) = -2$.
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 2</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_03_Q6_step_2.png" alt="Step 2 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
-                        </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student misapplied the Factor Theorem formula. Specifically, they likely confused the variable $x$ with the constant term of the factor when determining the value to substitute into the polynomial. The common mistake is to substitute the constant term directly (e.g., $1$ instead of $-1$) or to misunderstand the relationship between a factor $(x-a)$ and the root $a$.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li>To correctly apply the Factor Theorem for a given factor, first identify the factor. In this case, the factor is $(x + 1)$.</li>
-  <li>Set the factor equal to zero to find the value of $x$ that makes the factor zero. This value is the root associated with the factor: $x + 1 = 0 \implies x = -1$.</li>
-  <li>According to the Factor Theorem, if $(x + 1)$ is a factor of a polynomial $p(x)$, then substituting this root into the polynomial must result in zero. Therefore, $p(-1) = 0$.</li>
-</ol><br>
-<strong>Conclusion:</strong><br>The correct application of the Factor Theorem states that if $(x + 1)$ is a factor of $p(x)$, then $p(-1) = 0$.
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                
-                    </div>
-                </div>
-            </div>
-            
-        </section>
-        
-
-        <section class="page-section">
-            <h2 class="section-title">Page 4 Worksheets</h2>
-            
-            <div id="page_04_Q8" class="question-card glass-card success-card">
-                <div class="question-header">
-                    <h2>Q8 <span class="topic-label">Quadratic functions and coordinate geometry</span></h2>
-                    <span class="page-badge">Page 4</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_04_Q8_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                    </div>
-                </div>
-            </div>
-            
-        </section>
-        
-
-        <section class="page-section">
-            <h2 class="section-title">Page 5 Worksheets</h2>
-            
-            <div id="page_05_Q3" class="question-card glass-card success-card">
-                <div class="question-header">
-                    <h2>Q3 <span class="topic-label">Trigonometric graph parameters</span></h2>
-                    <span class="page-badge">Page 5</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_05_Q3_question.png" alt="Question text" class="question-image">
+                    <img src="images/page_03_Q7_question.png" alt="Diagram of a circle with a diameter PR and points P, Q, R, S on the circumference. Lines PR and QS intersect at T. It is given that ∠PSQ = 41° and ∠PTQ = 68°. The question asks to find ∠RQS and ∠PQS." class="question-image">
                     <div class="steps-section">
                         <h3>Student Working Steps</h3>
                         
@@ -1109,411 +786,17 @@
                         <span class="badge success-badge">✓ Correct</span>
                     </div>
                     <div class="step-body">
-                        <img src="images/page_05_Q3_step_1.png" alt="Step 1 solution" class="step-image">
+                        <img src="images/page_03_Q7_step_1.png" alt="The student identifies angle PSR as 90 degrees (angle in semi-circle) and calculates angle RSQ as 49 degrees by subtracting 41 degrees from 90 degrees." class="step-image">
                         
-                    </div>
-                </div>
-                
-                    </div>
-                </div>
-            </div>
-            
-
-            <div id="page_05_Q4" class="question-card glass-card error-card">
-                <div class="question-header">
-                    <h2>Q4 <span class="topic-label">Quadratic functions and roots</span></h2>
-                    <span class="page-badge">Page 5</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_05_Q4_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_05_Q4_step_1.png" alt="Step 1 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Correct. Since $PR$ is a diameter, $\angle PSR = 90^\circ$. You must explicitly state the geometric reason $(\angle \text{ in semi-circle})$ to earn 'Reason Marks'. Note: 'Add a line RS' is a Redundant Step here because $\angle PSR = 90^\circ$ is a direct property of the diameter $PR$ without needing construction.
+                            </div>
                         </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student incorrectly assumed that statement C was always true. Statement C likely asserted that the equation $g(x)+2=0$ has no real roots. However, the existence of real roots for $g(x)+2=0$ depends on the leading coefficient $a$ of the quadratic function. Specifically, if $a < 0$, the equation $g(x)+2=0$ will have real roots, which contradicts the assumption that statement C is universally true.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li><strong>Determine the function's equation from its vertex.</strong><br>Given that the vertex of $g(x)$ is $(-6, 2)$, the function can be written in vertex form as $g(x) = a(x - h)^2 + k$, where $(h, k)$ is the vertex. Substituting the vertex coordinates, we get $g(x) = a(x - (-6))^2 + 2$, which simplifies to $g(x) = a(x+6)^2 + 2$.</li>
-  <li><strong>Analyze Statement A: Evaluate $g(x) - 2 = 0$.</strong><br>Substitute the expression for $g(x)$: $a(x+6)^2 + 2 - 2 = 0$. This simplifies to $a(x+6)^2 = 0$. Assuming $a \ne 0$ (for $g(x)$ to be a quadratic function), we can divide by $a$: $(x+6)^2 = 0$. This equation has a repeated real root at $x = -6$. Since $-6$ is a negative number, Statement A (which states $g(x)-2=0$ has a negative real root) is true.</li>
-  <li><strong>Analyze Statement C: Evaluate $g(x) + 2 = 0$.</strong><br>Substitute the expression for $g(x)$: $a(x+6)^2 + 2 + 2 = 0$. This simplifies to $a(x+6)^2 + 4 = 0$. Rearranging the equation to solve for $(x+6)^2$: $a(x+6)^2 = -4$.</li>
-  <li><strong>Determine the nature of the roots for $a(x+6)^2 = -4$ based on the sign of $a$.</strong><br>To isolate $(x+6)^2$, divide both sides by $a$: $(x+6)^2 = \frac{-4}{a}$.
-    <ul>
-      <li><strong>Case 1: If $a > 0$</strong> (the parabola opens upwards).<br>In this case, $\frac{-4}{a}$ is a negative number. Since the square of any real number cannot be negative, the equation $(x+6)^2 = \text{negative number}$ has no real solutions. Thus, if $a > 0$, $g(x)+2=0$ has no real roots.</li>
-      <li><strong>Case 2: If $a < 0$</strong> (the parabola opens downwards).<br>In this case, $\frac{-4}{a}$ is a positive number (since $-4$ divided by a negative $a$ yields a positive result). Since the square of a real number can be positive, the equation $(x+6)^2 = \text{positive number}$ has two distinct real solutions: $x+6 = \pm \sqrt{\frac{-4}{a}}$. Thus, if $a < 0$, $g(x)+2=0$ has real roots.</li>
-    </ul>
-  </li>
-  <li><strong>Conclude on Statement C.</strong><br>Since the existence of real roots for $g(x)+2=0$ depends on the sign of $a$ (no real roots if $a>0$, but real roots if $a<0$), Statement C (likely stating $g(x)+2=0$ has no real roots) is not always true. The student's error was in assuming it was always true.</li>
-</ol><br>
-<strong>Conclusion:</strong><br>Statement A is definitively true, as $g(x)-2=0$ always yields a repeated root at $x=-6$. The student's error lies in assuming Statement C is universally true. Statement C (likely "$g(x)+2=0$ has no real roots") is only true when $a>0$; it is false when $a<0$. Therefore, Statement C is not necessarily true.
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                
-                    </div>
-                </div>
-            </div>
-            
-
-            <div id="page_05_Q5" class="question-card glass-card error-card">
-                <div class="question-header">
-                    <h2>Q5 <span class="topic-label">Quadratic graph transformations</span></h2>
-                    <span class="page-badge">Page 5</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_05_Q5_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_05_Q5_step_1.png" alt="Step 1 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
-                        </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student's final result for the transformed function and its vertex is mathematically correct. However, the intermediate step in the transformation from $y = -[3(3x+3m)^2 - 5m^2]$ to $y = -3[3(x+m)]^2 + 5m^2$ could be presented more clearly to avoid potential confusion. When factoring out $3$ from $(3x+3m)$ to get $3(x+m)$, the square applies to both factors, so $(3(x+m))^2 = 3^2(x+m)^2 = 9(x+m)^2$. Therefore, the term $3(3x+3m)^2$ becomes $3 \cdot 9(x+m)^2 = 27(x+m)^2$. The student's notation of $-3[3(x+m)]^2$ suggests that the initial coefficient of $3$ was simply moved outside the brackets, and only the inner $3$ was squared, which is not the precise algebraic operation, even though the final coefficient of $-27$ is correctly achieved. A clearer step would be to first fully simplify the squared term to $27(x+m)^2$ before distributing the negative sign from $-f(3x)$.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li>First, we complete the square for the given function $f(x) = 3x^2 + 18mx + 22m^2$.
-    We factor out the coefficient of $x^2$:
-    $$f(x) = 3(x^2 + 6mx) + 22m^2$$
-    To complete the square for the expression inside the parenthesis, $x^2 + 6mx$, we add and subtract $(\frac{6m}{2})^2 = (3m)^2 = 9m^2$:
-    $$f(x) = 3(x^2 + 6mx + 9m^2 - 9m^2) + 22m^2$$
-    Group the perfect square trinomial:
-    $$f(x) = 3((x+3m)^2 - 9m^2) + 22m^2$$
-    Distribute the $3$ to both terms inside the parenthesis:
-    $$f(x) = 3(x+3m)^2 - 3(9m^2) + 22m^2$$
-    $$f(x) = 3(x+3m)^2 - 27m^2 + 22m^2$$
-    Combine the constant terms:
-    $$f(x) = 3(x+3m)^2 - 5m^2$$
-  </li>
-  <li>Next, we find the transformed function $y = -f(3x)$. We substitute $3x$ for every $x$ in the completed square form of $f(x)$:
-    $$f(3x) = 3((3x)+3m)^2 - 5m^2$$
-    $$f(3x) = 3(3x+3m)^2 - 5m^2$$
-    Factor out $3$ from the term $(3x+3m)$ inside the squared expression:
-    $$f(3x) = 3(3(x+m))^2 - 5m^2$$
-    Apply the exponent rule $(ab)^2 = a^2b^2$ to $(3(x+m))^2$:
-    $$f(3x) = 3 \cdot (3^2 \cdot (x+m)^2) - 5m^2$$
-    $$f(3x) = 3 \cdot 9 \cdot (x+m)^2 - 5m^2$$
-    Multiply the coefficients:
-    $$f(3x) = 27(x+m)^2 - 5m^2$$
-  </li>
-  <li>Now, we apply the negative sign to the entire expression for $f(3x)$ to find $y = -f(3x)$:
-    $$y = -[27(x+m)^2 - 5m^2]$$
-    Distribute the negative sign to both terms inside the square brackets:
-    $$y = -27(x+m)^2 + 5m^2$$
-  </li>
-  <li>This transformed function $y = -27(x+m)^2 + 5m^2$ is now in the vertex form $y = a(x-h)^2 + k$.
-    By comparing $y = -27(x+m)^2 + 5m^2$ with the general vertex form $y = a(x-h)^2 + k$:
-    We identify $a = -27$, $h = -m$ (since $x+m = x-(-m)$), and $k = 5m^2$.
-    The vertex of the parabola is $(h, k)$, so the vertex is $(-m, 5m^2)$.
-    The y-coordinate of the vertex is $5m^2$.
-    The axis of symmetry is the vertical line $x=h$, so the axis of symmetry is $x = -m$, which can also be written as $x+m=0$.
-  </li>
-</ol><br>
-<strong>Conclusion:</strong><br>The transformed function is $y = -27(x+m)^2 + 5m^2$. The vertex of this graph is $(-m, 5m^2)$, and its axis of symmetry is $x+m=0$. Therefore, Statement II (y-coordinate is $5m^2$) and Statement III (axis of symmetry $x+m=0$) are both true.
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                
-                    </div>
-                </div>
-            </div>
-            
-        </section>
-        
-
-        <section class="page-section">
-            <h2 class="section-title">Page 6 Worksheets</h2>
-            
-            <div id="page_06_Q6" class="question-card glass-card error-card">
-                <div class="question-header">
-                    <h2>Q6 <span class="topic-label">Solving equations using graphs</span></h2>
-                    <span class="page-badge">Page 6</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_06_Q6_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_06_Q6_step_1.png" alt="Step 1 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
-                        </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The question was not attempted.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li>The given equation to solve is $$-x^3 - 3x^2 + 4 = 0$$. We are instructed to use the graph of $y = -x^3 - 3x^2 + 5$. To do this, we need to rewrite the given equation so that one side matches the expression from the graph, $$-x^3 - 3x^2 + 5$$.
-    Start with the original equation:
-    $$-x^3 - 3x^2 + 4 = 0$$
-    To get $$-x^3 - 3x^2 + 5$$ on the left side, we need to add $1$ to both sides of the equation:
-    $$-x^3 - 3x^2 + 4 + 1 = 0 + 1$$
-    This simplifies to:
-    $$-x^3 - 3x^2 + 5 = 1$$</li>
-  <li>Now, we interpret the rewritten equation graphically. The left side of the equation, $$-x^3 - 3x^2 + 5$$, represents the function $y = -x^3 - 3x^2 + 5$, which is the given graph. The right side of the equation, $1$, represents a horizontal line $y = 1$. Therefore, solving the equation $$-x^3 - 3x^2 + 5 = 1$$ is equivalent to finding the $x$-coordinates where the graph of $y = -x^3 - 3x^2 + 5$ intersects the horizontal line $y = 1$.</li>
-  <li>By observing the provided graph, locate the horizontal line $y = 1$. Identify the $x$-coordinates of the points where this line intersects the curve $y = -x^3 - 3x^2 + 5$. From the graph, the line $y = 1$ intersects the curve at two points, corresponding to $x = -2$ and $x = 1$.</li>
-</ol><br>
-<strong>Conclusion:</strong><br>The solutions to the equation $$-x^3 - 3x^2 + 4 = 0$$ are $x = -2$ and $x = 1$.
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                
-                    </div>
-                </div>
-            </div>
-            
-
-            <div id="page_06_Q7" class="question-card glass-card error-card">
-                <div class="question-header">
-                    <h2>Q7 <span class="topic-label">Trigonometric graph parameters</span></h2>
-                    <span class="page-badge">Page 6</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_06_Q7_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_06_Q7_step_1.png" alt="Step 1 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
-                        </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student did not provide an answer or solution for this problem.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li>Identify the properties of the given trigonometric function $y = a \cos(x + b^\circ)$.
-    <ul>
-      <li>The general form of the function is $y = a \cos(x + b^\circ)$.</li>
-      <li>The minimum point (trough) is given as $(110^\circ, -4)$.</li>
-      <li>For a cosine function $y = A \cos(\theta)$, if $A > 0$, its minimum value is $-A$.</li>
-      <li>In our case, the minimum value of $a \cos(x + b^\circ)$ is $-a$ (assuming $a > 0$).</li>
-    </ul>
-  </li>
-  <li>Determine the value of $a$ using the minimum value of the function.
-    <ul>
-      <li>From the given minimum point $(110^\circ, -4)$, the minimum value of the function is $-4$.</li>
-      <li>Equate the theoretical minimum value to the given minimum value: $-a = -4$.</li>
-      <li>Solving for $a$, we get $a = 4$. This confirms our assumption that $a > 0$.</li>
-    </ul>
-  </li>
-  <li>Determine the value of $b$ using the $x$-coordinate of the minimum point.
-    <ul>
-      <li>The cosine function $\cos(\theta)$ reaches its minimum value of $-1$ when its argument $\theta$ is $180^\circ$ (or $180^\circ + n \cdot 360^\circ$ for integer $n$).</li>
-      <li>For the function $y = a \cos(x + b^\circ)$, the argument is $(x + b^\circ)$.</li>
-      <li>The minimum occurs at $x = 110^\circ$. Therefore, we set the argument equal to $180^\circ$: $110^\circ + b^\circ = 180^\circ$.</li>
-      <li>Solving for $b^\circ$: $b^\circ = 180^\circ - 110^\circ = 70^\circ$.</li>
-      <li>Thus, $b = 70$.</li>
-    </ul>
-  </li>
-  <li>Verify if the calculated value of $b$ falls within the specified range.
-    <ul>
-      <li>The problem states that $-90 < b < 90$.</li>
-      <li>Our calculated value $b = 70$ satisfies this condition, as $-90 < 70 < 90$.</li>
-    </ul>
-  </li>
-</ol><br>
-<strong>Conclusion:</strong><br>The correct values are $a = 4$ and $b = 70$.
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                
-                    </div>
-                </div>
-            </div>
-            
-        </section>
-        
-
-        <section class="page-section">
-            <h2 class="section-title">Page 7 Worksheets</h2>
-            
-            <div id="page_07_Q9" class="question-card glass-card error-card">
-                <div class="question-header">
-                    <h2>Q9 <span class="topic-label">Quadratic vertex and transformations</span></h2>
-                    <span class="page-badge">Page 7</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_07_Q9_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_07_Q9_step_1.png" alt="Step 1 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
-                        </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student did not attempt the question, so there is no specific work to analyze for errors.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li>To find the vertex $P$ of the quadratic function $f(x) = x^2 - 6kx + 2k^2 - 8$, we use the method of completing the square.
-    We want to express $f(x)$ in the form $a(x-h)^2 + k'$.
-    First, group the terms involving $x$:
-    $$f(x) = (x^2 - 6kx) + 2k^2 - 8$$
-    To complete the square for $x^2 - 6kx$, we need to add and subtract $\left(\frac{-6k}{2}\right)^2 = (-3k)^2 = 9k^2$:
-    $$f(x) = (x^2 - 6kx + 9k^2) - 9k^2 + 2k^2 - 8$$
-    Now, factor the perfect square trinomial and combine the constant terms:
-    $$f(x) = (x - 3k)^2 - 7k^2 - 8$$
-    From this vertex form, the coordinates of the vertex $P$ are $(h, k')$.
-    Therefore, $P = (3k, -7k^2 - 8)$.
-  </li>
-  <li>Understand the transformations applied to $f(x)$ to obtain the new function.
-    The transformation from $f(x)$ to $f\left(\frac{x}{3}\right) + 12$ involves two distinct operations:
-    <ul>
-      <li>The term $f\left(\frac{x}{3}\right)$ indicates a horizontal stretch of the graph of $f(x)$ by a factor of $3$. This means that the x-coordinate of any point on the graph of $f(x)$ is multiplied by $3$.</li>
-      <li>The term $+ 12$ indicates a vertical translation upwards by $12$ units. This means that $12$ is added to the y-coordinate of any point on the graph of $f(x)$.</li>
-    </ul>
-  </li>
-  <li>Apply the transformations to find the coordinates of vertex $Q$ and then determine the coordinates of vertex $R$.
-    <ul>
-      <li><strong>Finding $Q$:</strong>
-        Vertex $P$ is $(3k, -7k^2 - 8)$. Applying the transformations described in the previous step:
-        The new x-coordinate, $x_Q = 3 \times (3k) = 9k$.
-        The new y-coordinate, $y_Q = (-7k^2 - 8) + 12 = -7k^2 + 4$.
-        Thus, the coordinates of $Q$ are $(9k, -7k^2 + 4)$.
-      </li>
-      <li><strong>Finding $R$:</strong>
-        The transformation for $R$ involves reflecting $y = f(x)$ with respect to the x-axis, and then translating it $90$ units to the left.
-        Reflecting $P(3k, -7k^2 - 8)$ with respect to the x-axis changes the sign of the y-coordinate:
-        $$(3k, -(-7k^2 - 8)) = (3k, 7k^2 + 8)$$
-        Translating this point $90$ units to the left subtracts $90$ from the x-coordinate:
-        $$(3k - 90, 7k^2 + 8)$$
-        Thus, the coordinates of $R$ are $(3k - 90, 7k^2 + 8)$.
-      </li>
-    </ul>
-  </li>
-  <li>Use the condition that $PQ \perp QR$ to find the value of $k$.
-    <ul>
-      <li>If two line segments are perpendicular, the product of their slopes must be $-1$. So, we must have $m_{PQ} \cdot m_{QR} = -1$.</li>
-      <li><strong>Calculate the slope of $PQ$, $m_{PQ}$:</strong>
-        Using points $P(3k, -7k^2 - 8)$ and $Q(9k, -7k^2 + 4)$:
-        $$m_{PQ} = \frac{y_Q - y_P}{x_Q - x_P} = \frac{(-7k^2 + 4) - (-7k^2 - 8)}{9k - 3k}$$
-        $$m_{PQ} = \frac{-7k^2 + 4 + 7k^2 + 8}{6k} = \frac{12}{6k} = \frac{2}{k}$$
-      </li>
-      <li><strong>Calculate the slope of $QR$, $m_{QR}$:</strong>
-        Using points $Q(9k, -7k^2 + 4)$ and $R(3k - 90, 7k^2 + 8)$:
-        $$m_{QR} = \frac{y_R - y_Q}{x_R - x_Q} = \frac{(7k^2 + 8) - (-7k^2 + 4)}{(3k - 90) - 9k}$$
-        $$m_{QR} = \frac{7k^2 + 8 + 7k^2 - 4}{3k - 90 - 9k} = \frac{14k^2 + 4}{-6k - 90}$$
-        Factor out common terms from the numerator and denominator:
-        $$m_{QR} = \frac{2(7k^2 + 2)}{-6(k + 15)} = \frac{7k^2 + 2}{-3(k + 15)}$$
-      </li>
-      <li><strong>Set the product of slopes to $-1$ and solve for $k$:</strong>
-        $$m_{PQ} \cdot m_{QR} = -1$$
-        $$\left(\frac{2}{k}\right) \cdot \left(\frac{7k^2 + 2}{-3(k + 15)}\right) = -1$$
-        $$\frac{2(7k^2 + 2)}{-3k(k + 15)} = -1$$
-        Multiply both sides by $-3k(k + 15)$ to clear the denominator:
-        $$2(7k^2 + 2) = 3k(k + 15)$$
-        $$14k^2 + 4 = 3k^2 + 45k$$
-        Rearrange the terms to form a standard quadratic equation:
-        $$14k^2 - 3k^2 - 45k + 4 = 0$$
-        $$11k^2 - 45k + 4 = 0$$
-      </li>
-      <li><strong>Solve the quadratic equation for $k$:</strong>
-        We can solve this quadratic equation by factoring. We look for two numbers that multiply to $11 \times 4 = 44$ and add to $-45$. These numbers are $-44$ and $-1$.
-        $$11k^2 - 44k - k + 4 = 0$$
-        $$11k(k - 4) - 1(k - 4) = 0$$
-        $$(11k - 1)(k - 4) = 0$$
-        This gives two possible solutions for $k$:
-        $$11k - 1 = 0 \Rightarrow k = \frac{1}{11}$$
-        $$k - 4 = 0 \Rightarrow k = 4$$
-      </li>
-      <li><strong>Apply the given condition:</strong>
-        The problem states that $k > 1$.
-        Comparing the two solutions, $k = \frac{1}{11}$ does not satisfy the condition $k > 1$, but $k = 4$ does.
-        Therefore, the value of $k$ is $4$.
-      </li>
-    </ul>
-  </li>
-</ol><br>
-<strong>Conclusion:</strong><br>The final value for $k$ is $4$.
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                
-                    </div>
-                </div>
-            </div>
-            
-        </section>
-        
-
-        <section class="page-section">
-            <h2 class="section-title">Page 8 Worksheets</h2>
-            
-            <div id="page_08_Q5" class="question-card glass-card error-card">
-                <div class="question-header">
-                    <h2>Q5 <span class="topic-label">Quadratic functions and properties</span></h2>
-                    <span class="page-badge">Page 8</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_08_Q5_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_08_Q5_step_1.png" alt="Step 1 solution" class="step-image">
                         
                     </div>
                 </div>
@@ -1525,7 +808,17 @@
                         <span class="badge success-badge">✓ Correct</span>
                     </div>
                     <div class="step-body">
-                        <img src="images/page_08_Q5_step_2.png" alt="Step 2 solution" class="step-image">
+                        <img src="images/page_03_Q7_step_2.png" alt="The student calculates angle RTQ as 112 degrees by subtracting 68 degrees from 180 degrees (angles on a straight line)." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Correct. $\angle RTQ = 180^\circ - 68^\circ = 112^\circ$. Remember to include the reason $(\text{adj. } \angle\text{s on st. line})$.
+                            </div>
+                        </div>
                         
                     </div>
                 </div>
@@ -1537,7 +830,17 @@
                         <span class="badge success-badge">✓ Correct</span>
                     </div>
                     <div class="step-body">
-                        <img src="images/page_08_Q5_step_3.png" alt="Step 3 solution" class="step-image">
+                        <img src="images/page_03_Q7_step_3.png" alt="The student identifies angle QRP = angle PSQ = 41 degrees (angles in the same segment) and then uses triangle RQT to find angle RQS = 180 - 112 - 41 = 27 degrees." class="step-image">
+                        
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Correct. You correctly used $(\angle\text{s in same segment})$ for $\angle QRP = 41^\circ$ and $(\angle \text{ sum of } \triangle)$ for the triangle $\triangle RQT$. Ensure these abbreviations are used.
+                            </div>
+                        </div>
                         
                     </div>
                 </div>
@@ -1549,110 +852,18 @@
                         <span class="badge success-badge">✓ Correct</span>
                     </div>
                     <div class="step-body">
-                        <img src="images/page_08_Q5_step_4.png" alt="Step 4 solution" class="step-image">
+                        <img src="images/page_03_Q7_step_4.png" alt="The student sums the angles (49 + 41 + 27 + ∠PQS) to 180 degrees (opposite angles of a cyclic quadrilateral) to solve for angle PQS." class="step-image">
                         
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 5</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_08_Q5_step_5.png" alt="Step 5 solution" class="step-image">
-                        
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 6</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_08_Q5_step_6.png" alt="Step 6 solution" class="step-image">
-                        
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 7</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_08_Q5_step_7.png" alt="Step 7 solution" class="step-image">
-                        
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 8</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_08_Q5_step_8.png" alt="Step 8 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                Your logic $49^\circ + 41^\circ + 27^\circ + \angle PQS = 180^\circ$ is correct and can earn full marks if you add the reason $(\text{opp. } \angle\text{s, cyclic quad.})$. Alt. Solution (Shortcut): Since $PR$ is a diameter, $\angle PQR = 90^\circ$ $(\angle \text{ in semi-circle})$. Thus $\angle PQS + 27^\circ = 90^\circ \implies \angle PQS = 63^\circ$.
+                            </div>
                         </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student did not attempt part (b) of the problem. Therefore, no work was submitted for evaluation for this section.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li><strong>For part (b)(i): Find the vertex of the parabola.</strong>
-    <br>Assuming the original quadratic function was in the form $y = x^2 + 4x - 12$ (or similar, leading to the given vertex form), we complete the square to find the vertex.
-    <br>$$y = x^2 + 4x - 12$$
-    <br>Group the $x$ terms and complete the square:
-    <br>$$y = (x^2 + 4x + 4) - 4 - 12$$
-    <br>$$y = (x+2)^2 - 16$$
-    <br>From the vertex form $y = a(x-h)^2 + k$, the vertex is $(h, k)$.
-    <br>Thus, the vertex $V$ is $(-2, -16)$.
-  </li>
-  <li><strong>For part (b)(ii): Find the area of the circle passing through the given points.</strong>
-    <br>The circle passes through points $P(-2, 0)$, $V(-2, -16)$, and the origin $O(0, 0)$.
-    <br>The general equation of a circle is $x^2 + y^2 + Dx + Ey + F = 0$.
-    <br>Substitute $O(0, 0)$ into the equation:
-    <br>$$(0)^2 + (0)^2 + D(0) + E(0) + F = 0 \implies F = 0$$
-    <br>So, the equation becomes $x^2 + y^2 + Dx + Ey = 0$.
-    <br>Substitute $P(-2, 0)$ into the equation:
-    <br>$$(-2)^2 + (0)^2 + D(-2) + E(0) = 0$$
-    <br>$$4 - 2D = 0 \implies 2D = 4 \implies D = 2$$
-    <br>Now the equation is $x^2 + y^2 + 2x + Ey = 0$.
-    <br>Substitute $V(-2, -16)$ into the equation:
-    <br>$$(-2)^2 + (-16)^2 + 2(-2) + E(-16) = 0$$
-    <br>$$4 + 256 - 4 - 16E = 0$$
-    <br>$$256 - 16E = 0 \implies 16E = 256 \implies E = 16$$
-    <br>The equation of the circle is $x^2 + y^2 + 2x + 16y = 0$.
-  </li>
-  <li><strong>Find the center and radius of the circle.</strong>
-    <br>To find the center and radius, complete the square for the circle's equation:
-    <br>$$(x^2 + 2x) + (y^2 + 16y) = 0$$
-    <br>$$(x^2 + 2x + 1) + (y^2 + 16y + 64) = 1 + 64$$
-    <br>$$(x+1)^2 + (y+8)^2 = 65$$
-    <br>Comparing this to the standard form $(x-h)^2 + (y-k)^2 = r^2$, we find:
-    <br>The center of the circle is $C(-1, -8)$.
-    <br>The radius squared is $r^2 = 65$.
-    <br>The radius is $r = \sqrt{65}$.
-  </li>
-  <li><strong>Calculate the area of the circle.</strong>
-    <br>The area of a circle is given by the formula $A = \pi r^2$.
-    <br>$$A = \pi (65)$$
-    <br>$$A = 65\pi$$
-  </li>
-</ol><br>
-<strong>Conclusion:</strong><br>The vertex of the parabola is $V(-2, -16)$, and the area of the circle passing through $P(-2, 0)$, $V(-2, -16)$, and $O(0, 0)$ is $65\pi$.
-                        </div>
-                    </div>
-                    
+                        
                     </div>
                 </div>
                 
@@ -1663,403 +874,60 @@
         </section>
         
 
-        <section class="page-section">
-            <h2 class="section-title">Page 9 Worksheets</h2>
-            
-            <div id="page_09_Q7" class="question-card glass-card error-card">
-                <div class="question-header">
-                    <h2>Q7 <span class="topic-label">Polynomials: Long Division and Factor Theorem</span></h2>
-                    <span class="page-badge">Page 9</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_09_Q7_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_09_Q7_step_1.png" alt="Step 1 solution" class="step-image">
-                        
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 2</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_09_Q7_step_2.png" alt="Step 2 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
-                        </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student correctly started the long division process and successfully identified the first intermediate remainder as $(a-12)x^2 + 3x + b$. However, the work is incomplete because the long division was not carried out to its conclusion, which is essential for determining the values of the unknown coefficients $a$ and $b$.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li>**Continue Long Division:** Based on the intermediate remainder $(a-12)x^2 + 3x + b$, the division must continue. To eliminate the $x^2$ term, divide $(a-12)x^2$ by the leading term of the divisor, $x^2$. This yields $(a-12)$ as the next term in the quotient.</li>
-  <li>**Determine Final Remainder:** Multiplying this new quotient term, $(a-12)$, by the divisor (assumed to be $x^2+5x-6$ from context, though not explicitly stated in the feedback, the feedback provides the final remainder directly), and subtracting it from the current remainder would lead to the final remainder. The feedback states that the final remainder, after completing the division, is $$(51-4a)x + (b-5a+60)$$.</li>
-  <li>**Equate Coefficients for $a$ and $b$ (Part a):** The problem specifies that the final remainder must be $$-5x + 30$$. By equating the coefficients of the derived remainder with the given remainder, we form a system of two linear equations:
-    <ul>
-      <li>For the $x$ term: $$51 - 4a = -5$$</li>
-      <li>For the constant term: $$b - 5a + 60 = 30$$</li>
-    </ul>
-  </li>
-  <li>**Solve for $a$ (Part a):** Solve the first equation for $a$:
-    $$51 - 4a = -5$$
-    $$51 + 5 = 4a$$
-    $$56 = 4a$$
-    $$a = \frac{56}{4}$$
-    $$a = 14$$</li>
-  <li>**Solve for $b$ (Part a):** Substitute the value of $a=14$ into the second equation and solve for $b$:
-    $$b - 5(14) + 60 = 30$$
-    $$b - 70 + 60 = 30$$
-    $$b - 10 = 30$$
-    $$b = 30 + 10$$
-    $$b = 40$$</li>
-  <li>**Apply Factor Theorem (Part b):** For part (b), the feedback states that $p(-4) = 0$. According to the Factor Theorem, if a polynomial $p(x)$ has a root at $x=c$ (i.e., $p(c)=0$), then $(x-c)$ is a factor of $p(x)$. Therefore, since $p(-4)=0$, $(x - (-4))$, which simplifies to $(x+4)$, is a factor of $p(x)$.</li>
-  <li>**Calculate Discriminant (Part c):** For part (c), consider the quadratic expression $3x^2+2x+10$. To determine the nature of its roots, calculate the discriminant $\Delta$ using the formula $$\Delta = b^2 - 4ac$$. For this quadratic, $a=3$, $b=2$, and $c=10$.
-    $$\Delta = (2)^2 - 4(3)(10)$$
-    $$\Delta = 4 - 120$$
-    $$\Delta = -116$$</li>
-  <li>**Interpret Discriminant (Part c):** Since the discriminant $\Delta = -116$ is less than zero ($$\Delta < 0$$), the quadratic equation $3x^2+2x+10=0$ has no real roots. Instead, it has two distinct complex conjugate roots. Consequently, there are no irrational real roots.</li>
-</ol><br>
-<strong>Conclusion:</strong><br>
-Part (a): The values are $a=14$ and $b=40$.<br>
-Part (b): Since $p(-4)=0$, $(x+4)$ is a factor of the polynomial $p(x)$.<br>
-Part (c): The discriminant of the quadratic $3x^2+2x+10$ is $\Delta = -116$, indicating that it has no irrational real roots (only complex roots).
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                
-                    </div>
-                </div>
+    <section class="page-section" id="student-summary">
+        <h2 class="section-title">HKDSE Performance Diagnostics</h2>
+        <div class="question-card glass-card student-summary-card">
+            <div class="question-header">
+                <h2>
+                    <svg class="summary-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    Student Performance Diagnostics & Revision Guide
+                </h2>
+                <span class="page-badge">HKDSE Compulsory Part</span>
             </div>
             
-        </section>
-        
-
-        <section class="page-section">
-            <h2 class="section-title">Page 10 Worksheets</h2>
-            
-            <div id="page_10_Q12" class="question-card glass-card error-card">
-                <div class="question-header">
-                    <h2>Q12 <span class="topic-label">Quadratic functions and coordinate geometry of triangles</span></h2>
-                    <span class="page-badge">Page 10</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_10_Q12_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_10_Q12_step_1.png" alt="Step 1 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
-                        </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student has only written the part label (a) and has not provided any mathematical work or calculations.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li>To find the coordinates of the vertex $Q$ for a quadratic function in the form $f(x) = ax^2 + bx + c$, we can use the method of completing the square to transform the function into vertex form $f(x) = a(x-h)^2 + k$, where the vertex is at $(h, k)$. The given function is $f(x) = x^2 - (6k+2)x + 9k^2 + 5k + 1$.</li>
-  <li>Identify the coefficient of the $x$ term, which is $-(6k+2)$.</li>
-  <li>Take half of the coefficient of the $x$ term and square it: $\left(-\frac{6k+2}{2}\right)^2 = \left(-(3k+1)\right)^2 = (3k+1)^2$.</li>
-  <li>Add and subtract this term to the expression for $f(x)$ to complete the square for the $x$ terms:
-    $$f(x) = x^2 - (6k+2)x + (3k+1)^2 - (3k+1)^2 + 9k^2 + 5k + 1$$</li>
-  <li>Group the first three terms to form a perfect square trinomial and simplify the remaining constant terms:
-    $$f(x) = [x^2 - (6k+2)x + (3k+1)^2] - [(3k+1)^2 - (9k^2 + 5k + 1)]$$
-    $$f(x) = [x - (3k+1)]^2 - [9k^2 + 6k + 1 - 9k^2 - 5k - 1]$$
-    $$f(x) = [x - (3k+1)]^2 - k$$</li>
-  <li>Compare this completed square form $f(x) = [x - (3k+1)]^2 - k$ with the general vertex form $f(x) = a(x-h)^2 + k$. Here, $a=1$, $h = 3k+1$, and the constant term outside the square is $-k$.</li>
-</ol><br>
-<strong>Conclusion:</strong><br>The vertex $Q$ of the function $y=f(x)$ is at the coordinates $(3k+1, -k)$.
-                        </div>
-                    </div>
-                    
-                    </div>
+            <div class="summary-content">
+                <div class="summary-section">
+                    <h3 class="summary-subtitle text-error">⚠️ Identified Weaknesses</h3>
+                    <ul class="summary-list">
+                        <li><strong>Frequent Omission of Geometric Reasons:</strong> The candidate understands circle geometry theorems and carries out calculations correctly, but consistently omits the geometric reasons in parentheses. In the HKDSE exam, this leads to a direct loss of "Reason Marks" (typically 1 mark per reason in Section A). Specific instances:
+                            <ul>
+                                <li>Page 1 (Q8b): Proved chords perpendicular using Pythagoras' theorem but omitted the reason <code>(converse of Pythagoras' Theorem)</code>.</li>
+                                <li>Page 2 (Q13a &amp; b): Applied <code>(opp. ∠s, cyclic quad.)</code>, <code>(∠ in semi-circle)</code>, and <code>(∠ at centre twice ∠ at circum.)</code> without writing down any justifications.</li>
+                                <li>Page 3 (Q7): Set up the cyclic quadrilateral equation without stating <code>(opp. ∠s, cyclic quad.)</code>.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Redundant Working Steps:</strong> The student spends valuable exam time writing down complete multi-line similarity proofs (e.g. Page 1, Q8a proving similarity by AAA) when the question command is only "Write down", which only requires stating the similarity statement itself (e.g., $\triangle ABE \sim \triangle DCE$) without proof.</li>
+                        <li><strong>Notation Ambiguity (Chord vs. Arc):</strong> In Page 2 (Q13b), the candidate uses the notation $BC$ to refer to the arc length when calculating the sector perimeter. In standard HKDSE notation, $BC$ represents the straight-line chord length, whereas the arc should be denoted as $\overset{\frown}{BC}$ or "arc BC". This ambiguity could lead to marks deduction.</li>
+                    </ul>
                 </div>
                 
-                    </div>
+                <div class="summary-section">
+                    <h3 class="summary-subtitle text-success">🎯 Revision Topics & Focusing Areas</h3>
+                    <ul class="summary-list">
+                        <li><strong>HKEAA Standard Geometric Reasons:</strong>
+                            <ul>
+                                <li>Thoroughly revise and memorize the list of HKEAA-approved geometric reasons and their official abbreviations (e.g. <code>(opp. ∠s, cyclic quad.)</code>, <code>(∠ in semi-circle)</code>, <code>(converse of Pythagoras' Theorem)</code>, <code>(angles in same segment)</code>, <code>(alt. ∠s, BC // OD)</code>).</li>
+                                <li>Establish a habit of writing a matching reason in parentheses immediately after every geometric statement.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Exam Command Verb Recognition:</strong>
+                            <ul>
+                                <li>Understand what HKEAA command verbs imply to manage time effectively: <strong>"Write down"</strong> means state the answer directly with 0 steps; <strong>"Find / Calculate"</strong> requires calculation working; <strong>"Explain / Prove"</strong> requires full working alongside geometric reasons.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Formal Geometric Notation:</strong>
+                            <ul>
+                                <li>Differentiate chord lengths from arc lengths using standard notation ($\overset{\frown}{BC}$ or $\text{arc } BC$) and ensure triangles are named in the correct order of corresponding vertices (e.g., $\triangle ABE \sim \triangle DCE$).</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            
-        </section>
-        
-
-        <section class="page-section">
-            <h2 class="section-title">Page 11 Worksheets</h2>
-            
-            <div id="page_11_Q8" class="question-card glass-card error-card">
-                <div class="question-header">
-                    <h2>Q8 <span class="topic-label">Locus of a point (Circle)</span></h2>
-                    <span class="page-badge">Page 11</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_11_Q8_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_11_Q8_step_1.png" alt="Step 1 solution" class="step-image">
-                        
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 2</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_11_Q8_step_2.png" alt="Step 2 solution" class="step-image">
-                        
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 3</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_11_Q8_step_3.png" alt="Step 3 solution" class="step-image">
-                        
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 4</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_11_Q8_step_4.png" alt="Step 4 solution" class="step-image">
-                        
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 5</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_11_Q8_step_5.png" alt="Step 5 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
-                        </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student correctly observed that the points $A, P,$ and $Q$ are located on a single line. However, the use of the phrase "lie on a line" is less mathematically precise than the term "collinear". Additionally, the student's statement concerning the condition "for $P$ to be farthest from $Q$" is imprecise. While $A$ lying between $P$ and $Q$ does define a specific linear arrangement where $PQ = PA + AQ$, this specific arrangement does not inherently mean $P$ is "farthest from $Q$" without further context regarding other points or distances.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li><strong>Precise Terminology for Points on a Line:</strong> When three or more points, such as $A, P,$ and $Q$, are situated on a single straight line, the accurate mathematical term to describe this property is "collinear". Therefore, it is more precise to state that points $A, P,$ and $Q$ are <strong>collinear</strong>.</li>
-  <li><strong>Understanding Geometric Order and Distances:</strong> If the intended arrangement is such that point $A$ is positioned <strong>between</strong> points $P$ and $Q$ on the line, this establishes a specific order. In this configuration, the total distance between $P$ and $Q$ is the sum of the distances from $P$ to $A$ and from $A$ to $Q$. This relationship is
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                
-                    </div>
-                </div>
-            </div>
-            
-        </section>
-        
-
-        <section class="page-section">
-            <h2 class="section-title">Page 12 Worksheets</h2>
-            
-            <div id="page_12_Q8" class="question-card glass-card error-card">
-                <div class="question-header">
-                    <h2>Q8 <span class="topic-label">Locus and Coordinate Geometry</span></h2>
-                    <span class="page-badge">Page 12</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_12_Q8_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_12_Q8_step_1.png" alt="Step 1 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
-                        </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student's error lies in identifying only the midpoint of the line segment $AB$ as the locus $\Gamma$. While the midpoint is indeed a point on the locus, it does not represent the entire set of points that are equidistant from $A$ and $B$. The locus is a continuous geometric figure, not a single point.<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li>Recall the definition of a locus of points: it is the set of all points that satisfy a given condition. In this case, the condition is that each point on the locus must be equidistant from two distinct points $A$ and $B$.</li>
-  <li>Consider any point $P$ such that its distance from $A$ is equal to its distance from $B$, i.e., $PA = PB$. Geometrically, the set of all such points $P$ forms a straight line.</li>
-  <li>This line has two key properties: it is perpendicular to the line segment $AB$, and it passes through the midpoint of $AB$. Therefore, this line is known as the perpendicular bisector of $AB$.</li>
-</ol><br>
-<strong>Conclusion:</strong><br>The locus $\Gamma$ of points equidistant from two distinct points $A$ and $B$ is the perpendicular bisector of the line segment $AB$.
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 2</h4>
-                        <span class="badge error-badge">⚠️ Error Detected</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_12_Q8_step_2.png" alt="Step 2 solution" class="step-image">
-                        
-                    <div class="feedback-card">
-                        <div class="feedback-header">
-                            <svg class="warning-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                            <span>Teacher / AI Grading Feedback</span>
-                        </div>
-                        <div class="feedback-body">
-                            <strong>Error Analysis:</strong><br>The student did not provide an answer for part (b).<br><br>
-<strong>Step-by-Step Solution:</strong>
-<ol>
-  <li>Calculate the slope of the perpendicular bisector $\Gamma$. The equation of $\Gamma$ is $x + y - 12 = 0$, which can be rewritten as $y = -x + 12$. Therefore, the slope of $\Gamma$, denoted as $m_{\Gamma}$, is $m_{\Gamma} = -1$.</li>
-  <li>Determine the slope of line $AB$. Since $\Gamma$ is the perpendicular bisector of $AB$, the line $AB$ is perpendicular to $\Gamma$. The product of the slopes of two perpendicular lines is $-1$. Thus, $m_{AB} \cdot m_{\Gamma} = -1 \implies m_{AB} \cdot (-1) = -1 \implies m_{AB} = 1$.</li>
-  <li>Find the equation of line $AB$. Using the point-slope form $y - y_1 = m(x - x_1)$ with point $A(8, 9)$ and slope $m_{AB} = 1$:
-    $$y - 9 = 1(x - 8)$$
-    $$y - 9 = x - 8$$
-    $$x - y + 1 = 0$$</li>
-  <li>Find the coordinates of the midpoint $M$ of $AB$. The midpoint $M$ is the intersection of the line $\Gamma$ and the line $AB$. We need to solve the system of equations:
-    $$
-    \begin{cases}
-    x + y = 12 \quad (\text{Equation of } \Gamma) \\
-    x - y = -1 \quad (\text{Equation of } AB)
-    \end{cases}
-    $$
-    Adding the two equations: $(x + y) + (x - y) = 12 + (-1) \implies 2x = 11 \implies x = 5.5$.
-    Substitute $x = 5.5$ into the first equation: $5.5 + y = 12 \implies y = 12 - 5.5 \implies y = 6.5$.
-    So, the midpoint is $M(5.5, 6.5)$.</li>
-  <li>Calculate the coordinates of point $B$. Using the midpoint formula $M = \left(\frac{x_A + x_B}{2}, \frac{y_A + y_B}{2}\right)$, we know $M(5.5, 6.5)$ and $A(8, 9)$.
-    We can rearrange the formula to find $B$: $B = 2M - A$.
-    $$B = 2(5.5, 6.5) - (8, 9)$$
-    $$B = (2 \times 5.5, 2 \times 6.5) - (8, 9)$$
-    $$B = (11, 13) - (8, 9)$$
-    $$B = (11 - 8, 13 - 9)$$
-    $$B = (3, 4)$$</li>
-</ol><br>
-<strong>Conclusion:</strong><br>The coordinates of point $B$ are $(3, 4)$.
-                        </div>
-                    </div>
-                    
-                    </div>
-                </div>
-                
-                    </div>
-                </div>
-            </div>
-            
-        </section>
-        
-
-        <section class="page-section">
-            <h2 class="section-title">Page 13 Worksheets</h2>
-            
-            <div id="page_13_Q10" class="question-card glass-card success-card">
-                <div class="question-header">
-                    <h2>Q10 <span class="topic-label">Algebraic manipulation</span></h2>
-                    <span class="page-badge">Page 13</span>
-                </div>
-                <div class="question-content">
-                    <img src="images/page_13_Q10_question.png" alt="Question text" class="question-image">
-                    <div class="steps-section">
-                        <h3>Student Working Steps</h3>
-                        
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 1</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_13_Q10_step_1.png" alt="Step 1 solution" class="step-image">
-                        
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 2</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_13_Q10_step_2.png" alt="Step 2 solution" class="step-image">
-                        
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 3</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_13_Q10_step_3.png" alt="Step 3 solution" class="step-image">
-                        
-                    </div>
-                </div>
-                
-
-                <div class="step-container">
-                    <div class="step-header">
-                        <h4>Step 4</h4>
-                        <span class="badge success-badge">✓ Correct</span>
-                    </div>
-                    <div class="step-body">
-                        <img src="images/page_13_Q10_step_4.png" alt="Step 4 solution" class="step-image">
-                        
-                    </div>
-                </div>
-                
-                    </div>
-                </div>
-            </div>
-            
-        </section>
-        
+        </div>
+    </section>
+    
     </main>
 
 </body>

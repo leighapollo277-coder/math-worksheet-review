@@ -1,9 +1,13 @@
 import os
 from PIL import Image
+from config import RAW_PAGES_DIR, RESIZED_DIR, PREVIEW_PATH
 
-def resize_images(src_dir, dest_dir, target_width=1000):
+def resize_images(src_dir=RAW_PAGES_DIR, dest_dir=RESIZED_DIR, target_width=1000):
+    """Resize raw page images to standard width for cropping consistency."""
     os.makedirs(dest_dir, exist_ok=True)
     files = sorted([f for f in os.listdir(src_dir) if f.endswith('.png')])
+    
+    resized_count = 0
     for filename in files:
         src_path = os.path.join(src_dir, filename)
         dest_path = os.path.join(dest_dir, filename)
@@ -15,11 +19,15 @@ def resize_images(src_dir, dest_dir, target_width=1000):
                 resized_img = img.resize((target_width, new_h), Image.Resampling.LANCZOS)
                 resized_img.save(dest_path, optimize=True)
                 print(f"Resized {filename}: {w}x{h} -> {target_width}x{new_h}")
+                resized_count += 1
             else:
                 img.save(dest_path)
                 print(f"Copied {filename} (already small): {w}x{h}")
+                
+    return resized_count
 
-def create_preview_html(image_dir, html_path):
+def create_preview_html(image_dir=RESIZED_DIR, html_path=PREVIEW_PATH):
+    """Generate preview HTML showing all resized PDF pages."""
     files = sorted([f for f in os.listdir(image_dir) if f.endswith('.png')])
     html_content = """<!DOCTYPE html>
 <html>
@@ -59,9 +67,15 @@ def create_preview_html(image_dir, html_path):
     <h1>PDF Scanned Page Previews</h1>
 """
     for f in files:
+        # Resolve page numbering safely without hardcoding
+        try:
+            page_lbl = f.split('_')[-1].split('.')[0]
+        except Exception:
+            page_lbl = f
+            
         html_content += f"""
     <div class="page-container">
-        <h3>Page {f.split('_')[-1].split('.')[0]}</h3>
+        <h3>Page {page_lbl}</h3>
         <img src="resized/{f}" alt="Page {f}">
     </div>
 """
@@ -72,9 +86,8 @@ def create_preview_html(image_dir, html_path):
     with open(html_path, 'w') as out_f:
         out_f.write(html_content)
     print("Preview HTML generated at:", html_path)
+    return len(files)
 
 if __name__ == '__main__':
-    src = "/Users/kenyim/.gemini/antigravity/scratch/math-answer-review/raw_pages"
-    dest = "/Users/kenyim/.gemini/antigravity/scratch/math-answer-review/resized"
-    resize_images(src, dest)
-    create_preview_html(dest, "/Users/kenyim/.gemini/antigravity/scratch/math-answer-review/preview.html")
+    resize_images()
+    create_preview_html()

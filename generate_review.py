@@ -1,6 +1,7 @@
 import os
 import glob
 import json
+from config import WORKSPACE_DIR, CACHE_DIR, REPORT_PATH, INDEX_PATH
 
 def load_all_data(cache_dir, compiled_path):
     """
@@ -35,7 +36,14 @@ def load_all_data(cache_dir, compiled_path):
             
     return pages_data
 
-def generate_html_content(pages_data):
+def clean_latex_escapes(text):
+    if not isinstance(text, str):
+        return text
+    # Replace control character representations of LaTeX backslash sequences
+    text = text.replace('\x0c', '\\f')
+    return text
+
+def generate_html_content(pages_data, workspace_dir=WORKSPACE_DIR):
     """
     Generate the HTML string based on pages data.
     """
@@ -67,15 +75,16 @@ def generate_html_content(pages_data):
                 total_steps += 1
                 step_num = step.get("step_number")
                 is_correct = step.get("is_correct", True)
-                written_text = step.get("student_written_text", "")
-                feedback = step.get("feedback", "")
+                written_text = clean_latex_escapes(step.get("student_written_text", ""))
+                feedback = clean_latex_escapes(step.get("feedback", ""))
                 
                 step_img_name = f"{page_str}_{q_num}_step_{step_num}.png"
                 step_img_path = f"images/{step_img_name}"
                 
                 # Check if step image exists to prevent broken images
-                step_img_exists = os.path.exists(os.path.join("/Users/kenyim/.gemini/antigravity/scratch/math-answer-review", step_img_path))
-                img_tag = f'<img src="{step_img_path}" alt="Step {step_num} solution" class="step-image">' if step_img_exists else f'<div class="no-image">Step {step_num} Crop Image Not Found</div>'
+                step_img_exists = os.path.exists(os.path.join(workspace_dir, step_img_path))
+                step_alt_text = step.get("step_alt", f"Step {step_num} solution").replace('"', '&quot;')
+                img_tag = f'<img src="{step_img_path}" alt="{step_alt_text}" class="step-image">' if step_img_exists else f'<div class="no-image">Step {step_num} Crop Image Not Found</div>'
                 
                 if not is_correct:
                     total_errors += 1
@@ -94,7 +103,20 @@ def generate_html_content(pages_data):
                     """
                 else:
                     badge = '<span class="badge success-badge">✓ Correct</span>'
-                    feedback_card = ""
+                    if feedback.strip():
+                        feedback_card = f"""
+                        <div class="feedback-card info-card">
+                            <div class="feedback-header">
+                                <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>HKDSE Exam Tips & Suggestions</span>
+                            </div>
+                            <div class="feedback-body">
+                                {feedback}
+                            </div>
+                        </div>
+                        """
+                    else:
+                        feedback_card = ""
                     
                 steps_html.append(f"""
                 <div class="step-container">
@@ -112,8 +134,9 @@ def generate_html_content(pages_data):
             # Question Crop
             q_img_name = f"{page_str}_{q_num}_question.png"
             q_img_path = f"images/{q_img_name}"
-            q_img_exists = os.path.exists(os.path.join("/Users/kenyim/.gemini/antigravity/scratch/math-answer-review", q_img_path))
-            q_img_tag = f'<img src="{q_img_path}" alt="Question text" class="question-image">' if q_img_exists else f'<div class="no-image">Question Text Crop Not Found</div>'
+            q_img_exists = os.path.exists(os.path.join(workspace_dir, q_img_path))
+            q_alt_text = q.get("question_alt", f"Diagram/text for {topic}").replace('"', '&quot;')
+            q_img_tag = f'<img src="{q_img_path}" alt="{q_alt_text}" class="question-image">' if q_img_exists else f'<div class="no-image">Question Text Crop Not Found</div>'
             
             q_status_class = "error-card" if has_error else "success-card"
             sidebar_status_class = "sidebar-error" if has_error else "sidebar-success"
@@ -157,6 +180,74 @@ def generate_html_content(pages_data):
     # Statistics Calculation
     accuracy = int((total_questions - total_errors) / total_questions * 100) if total_questions > 0 else 100
     
+    # Append Student Performance Diagnostics summary to sidebar
+    sidebar_links.append("""
+    <a href="#student-summary" class="sidebar-item sidebar-summary-link" style="margin-top: 16px; border-top: 1px solid var(--border-color); padding-top: 20px;">
+        <div class="sidebar-item-info">
+            <span class="sidebar-q-num" style="color: #a5b4fc;">📊 Diagnostics Summary</span>
+            <span class="sidebar-topic">Weaknesses & Focus Areas</span>
+        </div>
+        <span class="sidebar-badge" style="color: #a5b4fc;">★</span>
+    </a>
+    """)
+    
+    # Append Student Performance Diagnostics card to main feed
+    main_feed.append("""
+    <section class="page-section" id="student-summary">
+        <h2 class="section-title">HKDSE Performance Diagnostics</h2>
+        <div class="question-card glass-card student-summary-card">
+            <div class="question-header">
+                <h2>
+                    <svg class="summary-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    Student Performance Diagnostics & Revision Guide
+                </h2>
+                <span class="page-badge">HKDSE Compulsory Part</span>
+            </div>
+            
+            <div class="summary-content">
+                <div class="summary-section">
+                    <h3 class="summary-subtitle text-error">⚠️ Identified Weaknesses</h3>
+                    <ul class="summary-list">
+                        <li><strong>Frequent Omission of Geometric Reasons:</strong> The candidate understands circle geometry theorems and carries out calculations correctly, but consistently omits the geometric reasons in parentheses. In the HKDSE exam, this leads to a direct loss of "Reason Marks" (typically 1 mark per reason in Section A). Specific instances:
+                            <ul>
+                                <li>Page 1 (Q8b): Proved chords perpendicular using Pythagoras' theorem but omitted the reason <code>(converse of Pythagoras' Theorem)</code>.</li>
+                                <li>Page 2 (Q13a &amp; b): Applied <code>(opp. ∠s, cyclic quad.)</code>, <code>(∠ in semi-circle)</code>, and <code>(∠ at centre twice ∠ at circum.)</code> without writing down any justifications.</li>
+                                <li>Page 3 (Q7): Set up the cyclic quadrilateral equation without stating <code>(opp. ∠s, cyclic quad.)</code>.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Redundant Working Steps:</strong> The student spends valuable exam time writing down complete multi-line similarity proofs (e.g. Page 1, Q8a proving similarity by AAA) when the question command is only "Write down", which only requires stating the similarity statement itself (e.g., $\\triangle ABE \\sim \\triangle DCE$) without proof.</li>
+                        <li><strong>Notation Ambiguity (Chord vs. Arc):</strong> In Page 2 (Q13b), the candidate uses the notation $BC$ to refer to the arc length when calculating the sector perimeter. In standard HKDSE notation, $BC$ represents the straight-line chord length, whereas the arc should be denoted as $\\overset{\\frown}{BC}$ or "arc BC". This ambiguity could lead to marks deduction.</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-section">
+                    <h3 class="summary-subtitle text-success">🎯 Revision Topics & Focusing Areas</h3>
+                    <ul class="summary-list">
+                        <li><strong>HKEAA Standard Geometric Reasons:</strong>
+                            <ul>
+                                <li>Thoroughly revise and memorize the list of HKEAA-approved geometric reasons and their official abbreviations (e.g. <code>(opp. ∠s, cyclic quad.)</code>, <code>(∠ in semi-circle)</code>, <code>(converse of Pythagoras' Theorem)</code>, <code>(angles in same segment)</code>, <code>(alt. ∠s, BC // OD)</code>).</li>
+                                <li>Establish a habit of writing a matching reason in parentheses immediately after every geometric statement.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Exam Command Verb Recognition:</strong>
+                            <ul>
+                                <li>Understand what HKEAA command verbs imply to manage time effectively: <strong>"Write down"</strong> means state the answer directly with 0 steps; <strong>"Find / Calculate"</strong> requires calculation working; <strong>"Explain / Prove"</strong> requires full working alongside geometric reasons.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Formal Geometric Notation:</strong>
+                            <ul>
+                                <li>Differentiate chord lengths from arc lengths using standard notation ($\\overset{\\frown}{BC}$ or $\\text{arc } BC$) and ensure triangles are named in the correct order of corresponding vertices (e.g., $\\triangle ABE \\sim \\triangle DCE$).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    """)
+    
     sidebar_links_joined = "\n".join(sidebar_links)
     main_feed_joined = "\n".join(main_feed)
     
@@ -166,7 +257,7 @@ def generate_html_content(pages_data):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Math Review Portal</title>
+    <title>DSE Circle Geometry Grader — AI-Powered HKDSE Answer Review</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -541,6 +632,11 @@ def generate_html_content(pages_data):
             gap: 12px;
         }}
 
+        .feedback-card.info-card {{
+            background: rgba(59, 130, 246, 0.06);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+        }}
+
         .feedback-header {{
             display: flex;
             align-items: center;
@@ -550,7 +646,11 @@ def generate_html_content(pages_data):
             font-size: 13px;
         }}
 
-        .warning-icon {{
+        .feedback-card.info-card .feedback-header {{
+            color: #60a5fa;
+        }}
+
+        .warning-icon, .info-icon {{
             width: 16px;
             height: 16px;
         }}
@@ -559,6 +659,95 @@ def generate_html_content(pages_data):
             font-size: 13px;
             line-height: 1.6;
             color: #fca5a5;
+        }}
+
+        .feedback-card.info-card .feedback-body {{
+            color: #93c5fd;
+        }}
+
+        /* Summary Card Styling */
+        .student-summary-card {{
+            border-top: 4px solid var(--primary) !important;
+            background: linear-gradient(to bottom, rgba(99, 102, 241, 0.05), var(--bg-surface)) !important;
+        }}
+
+        .summary-icon {{
+            color: #818cf8;
+        }}
+
+        .summary-content {{
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-top: 24px;
+        }}
+
+        .summary-subtitle {{
+            font-family: var(--font-outfit);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }}
+
+        .text-error {{
+            color: #f87171;
+        }}
+
+        .text-success {{
+            color: #34d399;
+        }}
+
+        .summary-list {{
+            list-style-type: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }}
+
+        .summary-list > li {{
+            position: relative;
+            padding-left: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }}
+
+        .summary-list > li::before {{
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary);
+            font-size: 18px;
+            line-height: 1;
+        }}
+
+        .summary-list ul {{
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }}
+
+        .summary-list ul li {{
+            position: relative;
+            padding-left: 16px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }}
+
+        .summary-list ul li::before {{
+            content: "└";
+            position: absolute;
+            left: 0;
+            top: -2px;
+            color: rgba(255, 255, 255, 0.15);
         }}
 
         /* Responsive styling */
@@ -606,7 +795,7 @@ def generate_html_content(pages_data):
     <!-- Main Workspace -->
     <main class="main-content">
         <header class="dashboard-header">
-            <h1 class="dashboard-title">Homework Performance Dashboard</h1>
+            <h1 class="dashboard-title">DSE Circle Geometry Grader</h1>
             
             <!-- Dashboard Stats -->
             <div class="stats-grid">
@@ -634,25 +823,25 @@ def generate_html_content(pages_data):
 """
     return html_template
 
-def main():
-    cache_dir = "/Users/kenyim/.gemini/antigravity/scratch/math-answer-review/analysis_cache"
-    compiled_path = "/Users/kenyim/.gemini/antigravity/scratch/math-answer-review/analysis_report.json"
-    dest_path = "/Users/kenyim/.gemini/antigravity/scratch/math-answer-review/index.html"
-    
+def run_generation(cache_dir=CACHE_DIR, compiled_path=REPORT_PATH, dest_path=INDEX_PATH, workspace_dir=WORKSPACE_DIR):
     print("Loading data...")
     pages_data = load_all_data(cache_dir, compiled_path)
     
     if not pages_data:
         print("No analysis data loaded.")
-        return
+        return False
         
     print(f"Loaded grading data for {len(pages_data)} pages. Generating HTML...")
-    html_content = generate_html_content(pages_data)
+    html_content = generate_html_content(pages_data, workspace_dir=workspace_dir)
     
     with open(dest_path, "w") as f:
         f.write(html_content)
         
     print(f"Successfully generated review portal at: {dest_path}")
+    return True
+
+def main():
+    run_generation()
 
 if __name__ == "__main__":
     main()

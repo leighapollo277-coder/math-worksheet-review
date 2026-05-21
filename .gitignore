@@ -6,3 +6,9 @@ math_review_portal.zip
 .DS_Store
 review_screenshot_inspected.png
 review_screenshot.png
+temp_zip_extract/
+tmp_*.png
+page_0*_analysis.png
+page_0*_real.png
+page_0*_temp*.png
+page_0*_raw_temp.png
