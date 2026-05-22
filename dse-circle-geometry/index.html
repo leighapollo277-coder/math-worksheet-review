@@ -496,6 +496,243 @@
             color: rgba(255, 255, 255, 0.15);
         }
 
+        /* Practice Section and Question Card Styles */
+        .practice-card {
+            border-top: 4px solid #818cf8;
+            background: linear-gradient(to bottom, rgba(99, 102, 241, 0.03), var(--bg-surface));
+        }
+        
+        .practice-layout {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .practice-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .practice-question-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .practice-diagram-container {
+            width: 320px;
+            min-width: 320px;
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .practice-svg {
+            width: 100%;
+            height: auto;
+            max-width: 280px;
+            display: block;
+        }
+
+        /* SVG Inner Styling */
+        .practice-svg circle {
+            stroke: var(--text-primary);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .practice-svg line, .practice-svg path {
+            stroke: #a5b4fc;
+            stroke-width: 1.8;
+            fill: none;
+        }
+
+        .practice-svg line.dashed {
+            stroke-dasharray: 4 4;
+            stroke: var(--text-secondary);
+        }
+
+        .practice-svg text {
+            fill: var(--text-primary);
+            font-family: var(--font-outfit);
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .practice-svg text.given-val {
+            fill: #818cf8;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .practice-svg text.point-lbl {
+            font-style: italic;
+        }
+
+        .practice-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .btn-toggle-solution {
+            font-family: var(--font-outfit);
+            font-size: 13px;
+            font-weight: 600;
+            color: #a5b4fc;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-toggle-solution:hover {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: #6366f1;
+            color: var(--text-primary);
+            transform: translateY(-1px);
+        }
+
+        .solution-panel {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease-out;
+            margin-top: 0;
+        }
+
+        .solution-panel.open {
+            max-height: 1200px;
+            opacity: 1;
+            margin-top: 20px;
+        }
+
+        .solution-card {
+            background: rgba(99, 102, 241, 0.04);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .solution-title {
+            font-family: var(--font-outfit);
+            font-size: 14px;
+            font-weight: 600;
+            color: #a5b4fc;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .solution-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .solution-steps li {
+            position: relative;
+            padding-left: 20px;
+            list-style-type: none;
+        }
+
+        .solution-steps li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #818cf8;
+            font-weight: bold;
+        }
+
+        .reason-text {
+            color: #818cf8;
+            font-weight: 500;
+        }
+
+        .generate-btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .btn-generate {
+            font-family: var(--font-outfit);
+            font-size: 15px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+            border: none;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            outline: none;
+        }
+
+        .btn-generate:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
+            background: linear-gradient(135deg, #4338ca 0%, #4f46e5 100%);
+        }
+
+        .btn-generate:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .btn-generate:disabled {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            box-shadow: none;
+            cursor: not-allowed;
+        }
+
+        /* SVG arc elements */
+        .practice-svg path.arc-line {
+            stroke: #10b981;
+            stroke-width: 2.2;
+        }
+
+        /* Responsive adjustments for practice cards */
+        @media (max-width: 768px) {
+            .practice-layout {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .practice-diagram-container {
+                width: 100%;
+                min-width: unset;
+                max-width: 100%;
+            }
+
+            .practice-svg {
+                max-width: 240px;
+                margin: 0 auto;
+            }
+        }
+
         /* Responsive styling */
         @media (max-width: 1024px) {
             body {
@@ -568,6 +805,14 @@
             <span class="sidebar-topic">Weaknesses & Focus Areas</span>
         </div>
         <span class="sidebar-badge" style="color: #a5b4fc;">★</span>
+    </a>
+    
+    <a href="#practice-section" class="sidebar-item sidebar-practice-link" style="margin-top: 8px; border-top: 1px solid var(--border-color); padding-top: 12px;">
+        <div class="sidebar-item-info">
+            <span class="sidebar-q-num" style="color: #818cf8;">✏️ Practice Zone</span>
+            <span class="sidebar-topic">Similar Exam Questions</span>
+        </div>
+        <span class="sidebar-badge" style="color: #818cf8;">→</span>
     </a>
     
         </div>
@@ -928,7 +1173,602 @@
         </div>
     </section>
     
+    <section class="page-section" id="practice-section">
+        <h2 class="section-title">HKDSE Practice Zone (Circle Geometry)</h2>
+        
+        <div class="question-card glass-card practice-card">
+            <div class="question-header">
+                <h2>PQ1 <span class="topic-label">Similar Triangles &amp; Intersecting Chords</span></h2>
+                <span class="page-badge">Similar to Q8</span>
+            </div>
+            <div class="question-content">
+                <div class="practice-layout">
+                    <div class="practice-info">
+                        <div class="practice-question-text">
+                            Chords $AB$ and $CD$ of a circle intersect at $E$, as shown in the diagram. It is given that $AE = 9\text{ cm}$, $EB = 16\text{ cm}$, and $ED = 12\text{ cm}$.
+                            <br><br>
+                            <strong>(a)</strong> State a pair of similar triangles in the figure.
+                            <br>
+                            <strong>(b)</strong> Calculate the length of $CE$.
+                        </div>
+                        <div class="practice-actions">
+                            <button class="btn-toggle-solution" onclick="toggleSolution('pq1-sol', this)">
+                                <span>Show Solution</span>
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="practice-diagram-container">
+                        <svg class="practice-svg" viewBox="0 0 300 300">
+                            <circle cx="150" cy="150" r="90" />
+                            <line x1="92" y1="219" x2="235" y2="119" />
+                            <line x1="65" y1="119" x2="208" y2="219" />
+                            <line x1="92" y1="219" x2="65" y2="119" class="dashed" />
+                            <line x1="208" y1="219" x2="235" y2="119" class="dashed" />
+                            <text x="80" y="235" class="point-lbl">A</text>
+                            <text x="245" y="115" class="point-lbl">B</text>
+                            <text x="50" y="115" class="point-lbl">C</text>
+                            <text x="215" y="235" class="point-lbl">D</text>
+                            <text x="148" y="200" class="point-lbl">E</text>
+                            <text x="95" y="185" class="given-val">9 cm</text>
+                            <text x="180" y="140" class="given-val">16 cm</text>
+                            <text x="175" y="185" class="given-val">12 cm</text>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div id="pq1-sol" class="solution-panel">
+                    <div class="solution-card">
+                        <div class="solution-title">
+                            <span>✏️ Step-by-Step Solution</span>
+                        </div>
+                        <div class="solution-body">
+                            <ul class="solution-steps">
+                                <li>
+                                    <strong>(a) Identify similar triangles:</strong>
+                                    Consider $\triangle AEC$ and $\triangle DEB$:
+                                    <br>
+                                    $\angle EAC = \angle EDB$ <span class="reason-text">(&ang;s in same segment)</span>
+                                    <br>
+                                    $\angle ECA = \angle EBD$ <span class="reason-text">(&ang;s in same segment)</span>
+                                    <br>
+                                    $\angle AEC = \angle DEB$ <span class="reason-text">(vert. opp. &ang;s)</span>
+                                    <br>
+                                    Therefore, <strong>$\triangle AEC \sim \triangle DEB$</strong> <span class="reason-text">(AAA)</span>.
+                                </li>
+                                <li>
+                                    <strong>(b) Calculate $CE$:</strong>
+                                    Since $\triangle AEC \sim \triangle DEB$, the ratio of corresponding sides is equal:
+                                    <br>
+                                    $\frac{CE}{BE} = \frac{AE}{DE}$ <span class="reason-text">(corr. sides, &sim; &Delta;s)</span>
+                                    <br>
+                                    Substitute the given lengths:
+                                    <br>
+                                    $\frac{CE}{16} = \frac{9}{12}$
+                                    <br>
+                                    $CE = 16 \times \frac{3}{4} = 12\text{ cm}$.
+                                    <br>
+                                    <em>HKEAA Tip: You can also use the intersecting chords theorem directly: $AE \cdot EB = CE \cdot ED$ with the reason <span class="reason-text">(intersecting chords theorem)</span> to get $CE = 12\text{ cm}$ in one step.</em>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card glass-card practice-card">
+            <div class="question-header">
+                <h2>PQ2 <span class="topic-label">Sector Area &amp; Perimeter</span></h2>
+                <span class="page-badge">Similar to Q13</span>
+            </div>
+            <div class="question-content">
+                <div class="practice-layout">
+                    <div class="practice-info">
+                        <div class="practice-question-text">
+                            The diagram shows a sector $OAB$ with center $O$ and radius $14\text{ cm}$. The central angle $\angle AOB$ is $60^\circ$.
+                            <br><br>
+                            <strong>(a)</strong> Find the arc length $\overset{\frown}{AB}$ in terms of $\pi$.
+                            <br>
+                            <strong>(b)</strong> Find the perimeter of the sector $OAB$ (correct to 3 significant figures).
+                        </div>
+                        <div class="practice-actions">
+                            <button class="btn-toggle-solution" onclick="toggleSolution('pq2-sol', this)">
+                                <span>Show Solution</span>
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="practice-diagram-container">
+                        <svg class="practice-svg" viewBox="0 0 300 300">
+                            <path d="M 260 180 A 110 110 0 0 0 205 85" class="arc-line" />
+                            <line x1="150" y1="180" x2="260" y2="180" />
+                            <line x1="150" y1="180" x2="205" y2="85" />
+                            <line x1="260" y1="180" x2="205" y2="85" class="dashed" />
+                            <text x="135" y="195" class="point-lbl">O</text>
+                            <text x="270" y="185" class="point-lbl">A</text>
+                            <text x="210" y="75" class="point-lbl">B</text>
+                            <text x="200" y="200" class="given-val">14 cm</text>
+                            <path d="M 180 180 A 30 30 0 0 0 165 154" style="stroke: #6366f1; stroke-width: 1.5; fill: none;" />
+                            <text x="175" y="165" style="font-size: 11px; fill: #a5b4fc;">60°</text>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div id="pq2-sol" class="solution-panel">
+                    <div class="solution-card">
+                        <div class="solution-title">
+                            <span>✏️ Step-by-Step Solution</span>
+                        </div>
+                        <div class="solution-body">
+                            <ul class="solution-steps">
+                                <li>
+                                    <strong>(a) Find the arc length $\overset{\frown}{AB}$:</strong>
+                                    Formula: $\text{Arc length} = 2\pi r \times \frac{\theta}{360^\circ}$
+                                    <br>
+                                    $\overset{\frown}{AB} = 2 \times \pi \times 14 \times \frac{60^\circ}{360^\circ}$
+                                    <br>
+                                    $\overset{\frown}{AB} = 28\pi \times \frac{1}{6} = \frac{14\pi}{3}\text{ cm}$.
+                                </li>
+                                <li>
+                                    <strong>(b) Find the perimeter of sector $OAB$:</strong>
+                                    $\text{Perimeter} = OA + OB + \overset{\frown}{AB}$
+                                    <br>
+                                    $\text{Perimeter} = 14 + 14 + \frac{14\pi}{3}$
+                                    <br>
+                                    $\text{Perimeter} = 28 + 14.661 = 42.661\text{ cm} \approx 42.7\text{ cm}$ <span class="reason-text">(correct to 3 sig. figs.)</span>.
+                                    <br>
+                                    <em>HKEAA Tip: Make sure to differentiate between the perimeter of the sector ($OA + OB + \text{arc } AB$) and the perimeter of the segment bounded by chord $AB$ and arc $AB$ ($AB + \text{arc } AB$). Read carefully!</em>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card glass-card practice-card">
+            <div class="question-header">
+                <h2>PQ3 <span class="topic-label">Angle Properties of Circles</span></h2>
+                <span class="page-badge">Similar to Q7</span>
+            </div>
+            <div class="question-content">
+                <div class="practice-layout">
+                    <div class="practice-info">
+                        <div class="practice-question-text">
+                            In the diagram, $AC$ is a diameter of the circle with center $O$. $B$ and $D$ are points on the circumference. It is given that $\angle BAC = 55^\circ$.
+                            <br><br>
+                            <strong>(a)</strong> Find $\angle BDC$, giving geometric reasons.
+                            <br>
+                            <strong>(b)</strong> Find $\angle ADB$, giving geometric reasons.
+                        </div>
+                        <div class="practice-actions">
+                            <button class="btn-toggle-solution" onclick="toggleSolution('pq3-sol', this)">
+                                <span>Show Solution</span>
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="practice-diagram-container">
+                        <svg class="practice-svg" viewBox="0 0 300 300">
+                            <circle cx="150" cy="150" r="90" />
+                            <line x1="60" y1="150" x2="240" y2="150" />
+                            <line x1="60" y1="150" x2="195" y2="72" />
+                            <line x1="195" y1="72" x2="240" y2="150" />
+                            <line x1="60" y1="150" x2="105" y2="228" />
+                            <line x1="105" y1="228" x2="240" y2="150" />
+                            <line x1="195" y1="72" x2="105" y2="228" class="dashed" />
+                            <circle cx="150" cy="150" r="2.5" style="fill: var(--text-primary);" />
+                            <text x="145" y="142" style="font-size: 11px;">O</text>
+                            <text x="45" y="155" class="point-lbl">A</text>
+                            <text x="195" y="60" class="point-lbl">B</text>
+                            <text x="248" y="155" class="point-lbl">C</text>
+                            <text x="95" y="242" class="point-lbl">D</text>
+                            <path d="M 80 150 A 20 20 0 0 0 75 139" style="stroke: #6366f1; stroke-width: 1.5; fill: none;" />
+                            <text x="85" y="140" style="font-size: 11px; fill: #a5b4fc;">55°</text>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div id="pq3-sol" class="solution-panel">
+                    <div class="solution-card">
+                        <div class="solution-title">
+                            <span>✏️ Step-by-Step Solution</span>
+                        </div>
+                        <div class="solution-body">
+                            <ul class="solution-steps">
+                                <li>
+                                    <strong>(a) Find $\angle BDC$:</strong>
+                                    Observe that $\angle BDC$ and $\angle BAC$ are angles subtended by the same arc $BC$.
+                                    <br>
+                                    Therefore, $\angle BDC = \angle BAC = 55^\circ$ <span class="reason-text">(&ang;s in same segment)</span>.
+                                </li>
+                                <li>
+                                    <strong>(b) Find $\angle ADB$:</strong>
+                                    Since $AC$ is a diameter, the angle subtended on the circumference is a right angle:
+                                    <br>
+                                    $\angle ADC = 90^\circ$ <span class="reason-text">(&ang; in semi-circle)</span>
+                                    <br>
+                                    From the diagram:
+                                    <br>
+                                    $\angle ADB = \angle ADC - \angle BDC$
+                                    <br>
+                                    $\angle ADB = 90^\circ - 55^\circ = 35^\circ$.
+                                    <br>
+                                    <em>Alternative Method:</em>
+                                    <br>
+                                    $\angle ACB = 180^\circ - 90^\circ - 55^\circ = 35^\circ$ <span class="reason-text">(&ang; sum of &Delta;, using &ang;ABC = 90&deg; from &ang; in semi-circle)</span>
+                                    <br>
+                                    Then, $\angle ADB = \angle ACB = 35^\circ$ <span class="reason-text">(&ang;s in same segment)</span>.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="dynamic-practice-container"></div>
+
+        <div class="generate-btn-container">
+            <button id="btn-generate-more" class="btn-generate" onclick="generateNextQuestion()">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+                <span>Generate More Questions</span>
+            </button>
+        </div>
+    </section>
+    
     </main>
 
+    <script>
+        // Toggle Solution logic
+        function toggleSolution(panelId, btn) {
+            const panel = document.getElementById(panelId);
+            const isOpen = panel.classList.contains('open');
+            
+            if (isOpen) {
+                panel.classList.remove('open');
+                btn.querySelector('span').innerText = 'Show Solution';
+                btn.querySelector('svg').style.transform = 'rotate(0deg)';
+            } else {
+                panel.classList.add('open');
+                btn.querySelector('span').innerText = 'Hide Solution';
+                btn.querySelector('svg').style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Dynamic rotation styling for solution buttons
+        document.querySelectorAll('.btn-toggle-solution svg').forEach(svg => {
+            svg.style.transition = 'transform 0.25s ease';
+        });
+
+        // Question Bank array
+        const PRACTICE_BANK = [
+            {
+                id: "pq_bank_1",
+                topic: "Similar Triangles & Intersecting Chords",
+                badge: "PQ4",
+                similarTo: "Similar to Q8",
+                questionText: "Chords $PQ$ and $RS$ of a circle intersect at $T$. It is given that $PT = 8\\text{ cm}$, $TQ = 9\\text{ cm}$, and $RT = 6\\text{ cm}$.<br><br><strong>(a)</strong> State a pair of similar triangles in the figure.<br><strong>(b)</strong> Calculate the length of $TS$.",
+                svgMarkup: `<svg class="practice-svg" viewBox="0 0 300 300">
+                    <circle cx="150" cy="150" r="90" />
+                    <line x1="85" y1="210" x2="230" y2="110" />
+                    <line x1="75" y1="100" x2="210" y2="225" />
+                    <line x1="85" y1="210" x2="75" y2="100" class="dashed" />
+                    <line x1="210" y1="225" x2="230" y2="110" class="dashed" />
+                    <text x="70" y="225" class="point-lbl">P</text>
+                    <text x="240" y="105" class="point-lbl">Q</text>
+                    <text x="60" y="95" class="point-lbl">R</text>
+                    <text x="220" y="240" class="point-lbl">S</text>
+                    <text x="145" y="180" class="point-lbl">T</text>
+                    <text x="100" y="180" class="given-val">8 cm</text>
+                    <text x="175" y="130" class="given-val">9 cm</text>
+                    <text x="95" y="125" class="given-val">6 cm</text>
+                </svg>`,
+                solutionSteps: `<li>
+                    <strong>(a) Identify similar triangles:</strong>
+                    Consider $\\triangle PTS$ and $\\triangle RTQ$:
+                    <br>
+                    $\\angle TPS = \\angle TRQ$ <span class="reason-text">(&ang;s in same segment)</span>
+                    <br>
+                    $\\angle PST = \\angle RQT$ <span class="reason-text">(&ang;s in same segment)</span>
+                    <br>
+                    $\\angle PTS = \\angle RTQ$ <span class="reason-text">(vert. opp. &ang;s)</span>
+                    <br>
+                    Therefore, <strong>$\\triangle PTS \\sim \\triangle RTQ$</strong> <span class="reason-text">(AAA)</span>.
+                </li>
+                <li>
+                    <strong>(b) Calculate $TS$:</strong>
+                    Since $\\triangle PTS \\sim \\triangle RTQ$:
+                    <br>
+                    $\\frac{TS}{TQ} = \\frac{PT}{RT}$ <span class="reason-text">(corr. sides, &sim; &Delta;s)</span>
+                    <br>
+                    $\\frac{TS}{9} = \\frac{8}{6}$
+                    <br>
+                    $TS = 9 \\times \\frac{4}{3} = 12\\text{ cm}$.
+                </li>`
+            },
+            {
+                id: "pq_bank_2",
+                topic: "Sector Area & Perimeter",
+                badge: "PQ5",
+                similarTo: "Similar to Q13",
+                questionText: "The diagram shows a sector $OPQ$ with center $O$ and radius $12\\text{ cm}$. The central angle $\\angle POQ$ is $120^\\circ$.<br><br><strong>(a)</strong> Find the arc length $\\overset{\\frown}{PQ}$ in terms of $\\pi$.<br><strong>(b)</strong> Calculate the perimeter of the sector $OPQ$ (correct to 3 significant figures).",
+                svgMarkup: `<svg class="practice-svg" viewBox="0 0 300 300">
+                    <path d="M 230 210 A 110 110 0 0 0 70 210" class="arc-line" />
+                    <line x1="150" y1="130" x2="230" y2="210" />
+                    <line x1="150" y1="130" x2="70" y2="210" />
+                    <text x="145" y="115" class="point-lbl">O</text>
+                    <text x="240" y="225" class="point-lbl">P</text>
+                    <text x="55" y="225" class="point-lbl">Q</text>
+                    <text x="200" y="160" class="given-val">12 cm</text>
+                    <path d="M 165 145 A 25 25 0 0 1 135 145" style="stroke: #6366f1; stroke-width: 1.5; fill: none;" />
+                    <text x="140" y="165" style="font-size: 11px; fill: #a5b4fc;">120°</text>
+                </svg>`,
+                solutionSteps: `<li>
+                    <strong>(a) Find the arc length $\\overset{\\frown}{PQ}$:</strong>
+                    $\\text{Arc length} = 2\\pi r \\times \\frac{\\theta}{360^\\circ}$
+                    <br>
+                    $\\overset{\\frown}{PQ} = 2 \\times \\pi \\times 12 \\times \\frac{120^\\circ}{360^\\circ} = 24\\pi \\times \\frac{1}{3} = 8\\pi\\text{ cm}$.
+                </li>
+                <li>
+                    <strong>(b) Find the perimeter of sector $OPQ$:</strong>
+                    $\\text{Perimeter} = OP + OQ + \\overset{\\frown}{PQ}$
+                    <br>
+                    $\\text{Perimeter} = 12 + 12 + 8\\pi$
+                    <br>
+                    $\\text{Perimeter} = 24 + 25.133 = 49.133\\text{ cm} \\approx 49.1\\text{ cm}$ <span class="reason-text">(correct to 3 sig. figs.)</span>.
+                </li>`
+            },
+            {
+                id: "pq_bank_3",
+                topic: "Angle Properties of Circles",
+                badge: "PQ6",
+                similarTo: "Similar to Q7",
+                questionText: "In the diagram, $BD$ is a diameter of the circle. $A$ and $C$ are points on the circumference. It is given that $\\angle ABD = 58^\\circ$.<br><br><strong>(a)</strong> Find $\\angle ACD$, giving a geometric reason.<br><strong>(b)</strong> Calculate $\\angle BCD$, giving a geometric reason.",
+                svgMarkup: `<svg class="practice-svg" viewBox="0 0 300 300">
+                    <circle cx="150" cy="150" r="90" />
+                    <line x1="150" y1="60" x2="150" y2="240" />
+                    <line x1="72" y1="105" x2="150" y2="60" />
+                    <line x1="72" y1="105" x2="150" y2="240" />
+                    <line x1="228" y1="195" x2="150" y2="60" />
+                    <line x1="228" y1="195" x2="150" y2="240" />
+                    <line x1="72" y1="105" x2="228" y2="195" class="dashed" />
+                    <circle cx="150" cy="150" r="2.5" style="fill: var(--text-primary);" />
+                    <text x="75" y="95" class="point-lbl">A</text>
+                    <text x="145" y="50" class="point-lbl">B</text>
+                    <text x="235" y="210" class="point-lbl">C</text>
+                    <text x="145" y="255" class="point-lbl">D</text>
+                    <path d="M 150 80 A 20 20 0 0 1 138 72" style="stroke: #6366f1; stroke-width: 1.5; fill: none;" />
+                    <text x="120" y="95" style="font-size: 11px; fill: #a5b4fc;">58°</text>
+                </svg>`,
+                solutionSteps: `<li>
+                    <strong>(a) Find $\\angle ACD$:</strong>
+                    Observe that $\\angle ACD$ and $\\angle ABD$ are subtended by the same arc $AD$ on the circumference.
+                    <br>
+                    Therefore, $\\angle ACD = \\angle ABD = 58^\\circ$ <span class="reason-text">(&ang;s in same segment)</span>.
+                </li>
+                <li>
+                    <strong>(b) Find $\\angle BCD$:</strong>
+                    Since $BD$ is a diameter of the circle, the angle subtended by the diameter at the circumference is a right angle.
+                    <br>
+                    Therefore, $\\angle BCD = 90^\\circ$ <span class="reason-text">(&ang; in semi-circle)</span>.
+                </li>`
+            },
+            {
+                id: "pq_bank_4",
+                topic: "Tangents & Similar Triangles",
+                badge: "PQ7",
+                similarTo: "Similar to Q8",
+                questionText: "In the diagram, $TB$ is a tangent to the circle at $B$. $TCA$ is a straight line intersecting the circle at $C$ and $A$. It is given that $TC = 4\\text{ cm}$ and $CA = 5\\text{ cm}$.<br><br><strong>(a)</strong> State a pair of similar triangles in the figure.<br><strong>(b)</strong> Calculate the length of the tangent segment $TB$.",
+                svgMarkup: `<svg class="practice-svg" viewBox="0 0 300 300">
+                    <circle cx="130" cy="150" r="70" />
+                    <line x1="250" y1="150" x2="140" y2="70" />
+                    <line x1="250" y1="150" x2="65" y2="120" />
+                    <line x1="175" y1="96" x2="65" y2="120" />
+                    <line x1="175" y1="96" x2="179" y2="195" />
+                    <text x="255" y="160" class="point-lbl">T</text>
+                    <text x="175" y="85" class="point-lbl">B</text>
+                    <text x="185" y="210" class="point-lbl">C</text>
+                    <text x="50" y="125" class="point-lbl">A</text>
+                    <text x="215" y="185" class="given-val">4 cm</text>
+                    <text x="120" y="175" class="given-val">5 cm</text>
+                </svg>`,
+                solutionSteps: `<li>
+                    <strong>(a) Identify similar triangles:</strong>
+                    Consider $\\triangle TBC$ and $\\triangle TAB$:
+                    <br>
+                    $\\angle BTC = \\angle ATB$ <span class="reason-text">(common angle)</span>
+                    <br>
+                    $\\angle TBC = \\angle TAB$ <span class="reason-text">(&angle; in alt. segment)</span>
+                    <br>
+                    Therefore, <strong>$\\triangle TBC \\sim \\triangle TAB$</strong> <span class="reason-text">(AAA)</span>.
+                </li>
+                <li>
+                    <strong>(b) Calculate $TB$:</strong>
+                    Since $\\triangle TBC \\sim \\triangle TAB$, their corresponding sides are proportional:
+                    <br>
+                    $\\frac{TB}{TA} = \\frac{TC}{TB}$ <span class="reason-text">(corr. sides, &sim; &Delta;s)</span>
+                    <br>
+                    $TB^2 = TA \\times TC$
+                    <br>
+                    Given $TC = 4\\text{ cm}$ and $TA = TC + CA = 4 + 5 = 9\\text{ cm}$.
+                    <br>
+                    $TB^2 = 9 \\times 4 = 36$
+                    <br>
+                    $TB = 6\\text{ cm}$.
+                </li>`
+            },
+            {
+                id: "pq_bank_5",
+                topic: "Segment Perimeter & Angles",
+                badge: "PQ8",
+                similarTo: "Similar to Q13",
+                questionText: "In the diagram, $O$ is the center of the circle with radius $10\\text{ cm}$. Chord $AB$ has a length of $10\\text{ cm}$.<br><br><strong>(a)</strong> Find the central angle $\\angle AOB$.<br><strong>(b)</strong> Calculate the perimeter of the shaded segment bounded by the chord $AB$ and the arc $AB$ (correct to 3 significant figures).",
+                svgMarkup: `<svg class="practice-svg" viewBox="0 0 300 300">
+                    <path d="M 230 180 A 80 80 0 0 0 190 110 Z" style="fill: rgba(99, 102, 241, 0.15); stroke: none;" />
+                    <circle cx="150" cy="150" r="80" />
+                    <line x1="150" y1="150" x2="230" y2="180" />
+                    <line x1="150" y1="150" x2="190" y2="110" />
+                    <line x1="230" y1="180" x2="190" y2="110" style="stroke: #10b981; stroke-width: 2;" />
+                    <path d="M 230 180 A 80 80 0 0 0 190 110" class="arc-line" />
+                    <text x="135" y="155" class="point-lbl">O</text>
+                    <text x="240" y="185" class="point-lbl">A</text>
+                    <text x="185" y="98" class="point-lbl">B</text>
+                    <text x="180" y="180" class="given-val">10 cm</text>
+                    <text x="218" y="140" style="font-size: 11px; fill: #10b981;">10 cm</text>
+                </svg>`,
+                solutionSteps: `<li>
+                    <strong>(a) Find $\\angle AOB$:</strong>
+                    Since $OA = OB = 10\\text{ cm}$ <span class="reason-text">(radii)</span> and chord $AB = 10\\text{ cm}$ (given).
+                    <br>
+                    $\\triangle OAB$ is an equilateral triangle.
+                    <br>
+                    Therefore, $\\angle AOB = 60^\\circ$ <span class="reason-text">(property of equilateral &Delta;)</span>.
+                </li>
+                <li>
+                    <strong>(b) Calculate the perimeter of the segment:</strong>
+                    Formula: $\\text{Perimeter} = \\text{chord } AB + \\text{arc } AB$
+                    <br>
+                    $\\text{Arc length } AB = 2\\pi r \\times \\frac{\\theta}{360^\\circ}$
+                    <br>
+                    $\\text{Arc length } AB = 2 \\times \\pi \\times 10 \\times \\frac{60^\\circ}{360^\\circ} = \\frac{10\\pi}{3} \\approx 10.472\\text{ cm}$.
+                    <br>
+                    $\\text{Perimeter} = 10 + 10.472 = 20.472\\text{ cm} \\approx 20.5\\text{ cm}$ <span class="reason-text">(correct to 3 sig. figs.)</span>.
+                </li>`
+            },
+            {
+                id: "pq_bank_6",
+                topic: "Cyclic Quadrilaterals & Angle Properties",
+                badge: "PQ9",
+                similarTo: "Similar to Q7",
+                questionText: "In the diagram, $A$, $B$, $C$, and $D$ are points on the circle. The diagonals $AC$ and $BD$ intersect at $E$. It is given that $\\angle BAC = 42^\\circ$, $\\angle CAD = 38^\\circ$, and $\\angle ABD = 40^\\circ$.<br><br><strong>(a)</strong> Find $\\angle BCD$, giving a geometric reason.<br><strong>(b)</strong> Calculate $\\angle ACD$, giving a geometric reason.",
+                svgMarkup: `<svg class="practice-svg" viewBox="0 0 300 300">
+                    <circle cx="150" cy="150" r="90" />
+                    <line x1="92" y1="81" x2="235" y2="105" />
+                    <line x1="235" y1="105" x2="208" y2="219" />
+                    <line x1="208" y1="219" x2="92" y2="219" />
+                    <line x1="92" y1="219" x2="92" y2="81" />
+                    <line x1="92" y1="81" x2="208" y2="219" />
+                    <line x1="235" y1="105" x2="92" y2="219" />
+                    <text x="80" y="75" class="point-lbl">A</text>
+                    <text x="245" y="105" class="point-lbl">B</text>
+                    <text x="215" y="235" class="point-lbl">C</text>
+                    <text x="80" y="235" class="point-lbl">D</text>
+                    <text x="145" y="160" class="point-lbl">E</text>
+                    <path d="M 106 97 A 20 20 0 0 0 106 83" style="stroke: #6366f1; stroke-width: 1.2; fill: none;" />
+                    <text x="112" y="93" style="font-size: 10px; fill: #a5b4fc;">42°</text>
+                    <path d="M 92 101 A 20 20 0 0 0 106 97" style="stroke: #6366f1; stroke-width: 1.2; fill: none;" />
+                    <text x="96" y="115" style="font-size: 10px; fill: #a5b4fc;">38°</text>
+                    <path d="M 215 102 A 20 20 0 0 1 217 117" style="stroke: #6366f1; stroke-width: 1.2; fill: none;" />
+                    <text x="200" y="125" style="font-size: 10px; fill: #a5b4fc;">40°</text>
+                </svg>`,
+                solutionSteps: `<li>
+                    <strong>(a) Find $\\angle BCD$:</strong>
+                    First, find the total angle $\\angle BAD$:
+                    <br>
+                    $\\angle BAD = \\angle BAC + \\angle CAD = 42^\\circ + 38^\\circ = 80^\\circ$.
+                    <br>
+                    Since $ABCD$ is a cyclic quadrilateral:
+                    <br>
+                    $\\angle BCD + \\angle BAD = 180^\\circ$ <span class="reason-text">(opp. &ang;s, cyclic quad.)</span>
+                    <br>
+                    $\\angle BCD = 180^\\circ - 80^\\circ = 100^\\circ$.
+                </li>
+                <li>
+                    <strong>(b) Find $\\angle ACD$:</strong>
+                    Observe that $\\angle ACD$ and $\\angle ABD$ are subtended by the same arc $AD$ on the circumference.
+                    <br>
+                    Therefore, $\\angle ACD = \\angle ABD = 40^\\circ$ <span class="reason-text">(&ang;s in same segment)</span>.
+                </li>`
+            }
+        ];
+
+        let currentBankIndex = 0;
+
+        function generateNextQuestion() {
+            if (currentBankIndex >= PRACTICE_BANK.length) return;
+
+            const q = PRACTICE_BANK[currentBankIndex];
+            const container = document.getElementById('dynamic-practice-container');
+            
+            const card = document.createElement('div');
+            card.className = 'question-card glass-card practice-card';
+            card.id = `practice-bank-card-${q.id}`;
+            card.innerHTML = `
+                <div class="question-header">
+                    <h2>${q.badge} <span class="topic-label">${q.topic}</span></h2>
+                    <span class="page-badge">${q.similarTo}</span>
+                </div>
+                <div class="question-content">
+                    <div class="practice-layout">
+                        <div class="practice-info">
+                            <div class="practice-question-text">
+                                ${q.questionText}
+                            </div>
+                            <div class="practice-actions">
+                                <button class="btn-toggle-solution" onclick="toggleSolution('${q.id}-sol', this)">
+                                    <span>Show Solution</span>
+                                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="practice-diagram-container">
+                            ${q.svgMarkup}
+                        </div>
+                    </div>
+                    
+                    <div id="${q.id}-sol" class="solution-panel">
+                        <div class="solution-card">
+                            <div class="solution-title">
+                                <span>✏️ Step-by-Step Solution</span>
+                            </div>
+                            <div class="solution-body">
+                                <ul class="solution-steps">
+                                    ${q.solutionSteps}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Style transition for the SVG toggle button inside new card
+            const newSvg = card.querySelector('.btn-toggle-solution svg');
+            if (newSvg) newSvg.style.transition = 'transform 0.25s ease';
+
+            container.appendChild(card);
+
+            // Crucial: run KaTeX auto-render on the new card
+            if (typeof renderMathInElement === 'function') {
+                renderMathInElement(card, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ]
+                });
+            }
+
+            currentBankIndex++;
+
+            // If pool is empty, disable the generate button
+            if (currentBankIndex >= PRACTICE_BANK.length) {
+                const btn = document.getElementById('btn-generate-more');
+                btn.disabled = true;
+                btn.querySelector('span').innerText = 'All Practice Questions Generated!';
+                btn.querySelector('svg').style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
